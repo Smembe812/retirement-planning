@@ -1,0 +1,33 @@
+{
+  "name": "employer",
+  "plural": "employers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "employmentNumber": {
+      "type": "string",
+      "required": true,
+      "default": "dateFirstJoined"
+    },
+    "dateFirstJoined": {
+      "type": "date"
+    },
+    "dateConfirmed": {
+      "type": "date"
+    },
+    "currentMonthlySalary": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

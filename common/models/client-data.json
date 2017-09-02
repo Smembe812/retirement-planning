@@ -1,0 +1,80 @@
+{
+  "name": "client-data",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstNname": {
+      "type": "String",
+      "required": true,
+      "length": 256,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "first_name",
+        "dataType": "character varying",
+        "dataLength": 256,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
+    },
+    "lastName": {
+      "type": "String",
+      "required": true,
+      "length": 256,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "last_name",
+        "dataType": "character varying",
+        "dataLength": 256,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
+    },
+    "maritalStatus": {
+      "type": "String",
+      "required": true,
+      "length": 256,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "marital_status",
+        "dataType": "character varying",
+        "dataLength": 256,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
+    },
+    "dob": {
+      "type": "String",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "dob",
+        "dataType": "timestamp",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "clientHasData": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

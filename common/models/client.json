@@ -1,0 +1,53 @@
+{
+  "name": "client",
+  "plural": "clients",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "clientHasData": {
+      "type": "hasOne",
+      "model": "client-data",
+      "foreignKey": "clientId"
+    },
+    "medicalConditions": {
+      "type": "hasMany",
+      "model": "medicalCondition",
+      "foreignKey": "clientId"
+    },
+    "dependants": {
+      "type": "hasMany",
+      "model": "dependant",
+      "foreignKey": "clientId"
+    },
+    "spouses": {
+      "type": "hasOne",
+      "model": "spouse",
+      "foreignKey": "clientId"
+    },
+    "employers": {
+      "type": "hasOne",
+      "model": "employer",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
