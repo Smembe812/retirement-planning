@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-services-investment-advisory', {
+        url: '/website/services/investment-advisory',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/services.investment-advisory.html'
+      })
       .state('website-services-training-programmes-for-trustees', {
         url: '/website/services/training-programmes-for-trustees',
         css: [
