@@ -7,7 +7,7 @@
     "host": "localhost",
     "port": 5432,
     "url": "",
-    "database": "fosella",
+    "database": "rcp_db",
     "password": "1234",
     "name": "postgre",
     "user": "postgres",

@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-services-will-preparation-and-execution', {
+        url: '/website/services/will-preparation-and-execution',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/services.will-preparation-and-execution.html'
+      })
       .state('website-services-counselling', {
         url: '/website/services/counselling',
         css: [
