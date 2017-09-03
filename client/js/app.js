@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-services-retirement-planning-advisory', {
+        url: '/website/services/retirement-planning-advisory',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/services.retirement-planning-advisory.html'
+      })
       .state('signin', {
         url: '/signin',
         templateUrl: 'views/signin.component.html',
