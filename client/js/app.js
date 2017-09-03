@@ -17,6 +17,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/landing-page.html'
       })
+      .state('website-about', {
+        url: '/website/about-us',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/about.html'
+      })
       .state('signin', {
         url: '/signin',
         templateUrl: 'views/signin.component.html',
