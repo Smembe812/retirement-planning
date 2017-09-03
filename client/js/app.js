@@ -7,6 +7,16 @@ angular.module('app', [
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
+      .state('website-home', {
+        url: '/website/home',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/landing-page.html'
+      })
       .state('signin', {
         url: '/signin',
         templateUrl: 'views/signin.component.html',
