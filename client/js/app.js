@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-contact-us', {
+        url: '/website/contact-us',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/contact-us.html'
+      })
       .state('website-privacy-statement', {
         url: '/website/privacy-statement',
         css: [
