@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-services-pension-fund-management-and-administration-assessments', {
+        url: '/website/services/pension-fund-management-and-administration-assessments',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/services.pension-fund-management-and-administration-assessments.html'
+      })
       .state('website-services-investment-advisory', {
         url: '/website/services/investment-advisory',
         css: [
