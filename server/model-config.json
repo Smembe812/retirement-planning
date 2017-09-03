@@ -14,59 +14,59 @@
     ]
   },
   "User": {
-    "dataSource": "postgre"
+    "dataSource": "db"
   },
   "AccessToken": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": false
   },
   "ACL": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": false
   },
   "Email": {
     "dataSource": "foremails"
   },
   "client": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true,
     "options": {
       "emailVerificationRequired": true
     }
   },
   "client-data": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true
   },
   "medicalCondition": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true
   },
   "dependant": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true
   },
   "spouse": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true
   },
   "employer": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true
   },
   "emailList": {
-    "dataSource": "postgre",
+    "dataSource": "db",
     "public": true
   }
 }
