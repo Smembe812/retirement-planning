@@ -3,6 +3,16 @@
     "name": "db",
     "connector": "memory"
   },
+  "postgre": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "",
+    "database": "fosella",
+    "password": "1234",
+    "name": "postgre",
+    "user": "postgres",
+    "connector": "postgresql"
+  },
   "foremails": {
     "name": "foremails",
     "connector": "mail",

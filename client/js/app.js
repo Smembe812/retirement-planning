@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-services-counselling', {
+        url: '/website/services/counselling',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/services.counselling.html'
+      })
       .state('website-services-customer-records-management', {
         url: '/website/services/customer-records-management',
         css: [
