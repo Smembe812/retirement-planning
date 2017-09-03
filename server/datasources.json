@@ -4,7 +4,7 @@
     "connector": "memory"
   },
   "postgre": {
-    "host": "localhost",
+    "host": "db",
     "port": 5432,
     "url": "",
     "database": "rcp_db",
