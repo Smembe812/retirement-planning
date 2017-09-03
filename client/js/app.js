@@ -27,6 +27,16 @@ angular.module('app', [
         ],
         templateUrl: '../website/about.html'
       })
+      .state('website-privacy-statement', {
+        url: '/website/privacy-statement',
+        css: [
+          '../assets/css/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/now-ui-kit.css',
+          '../assets/css/rpc.css'
+        ],
+        templateUrl: '../website/privacy-statement.html'
+      })
       .state('website-why-choose-rpc', {
         url: '/website/why-choose-rpc',
         css: [
