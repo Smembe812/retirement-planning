@@ -36,8 +36,7 @@ angular.module('app', [
           '../assets/css/now-ui-kit.css',
           '../assets/css/rpc.css'
         ],
-        controller: 'SigninController',
-
+        controller: 'SigninController'
       })
       .state('signout', {
         url: '/signout',
