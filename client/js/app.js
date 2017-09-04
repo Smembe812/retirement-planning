@@ -152,6 +152,16 @@ angular.module('app', [
         url: '/signout',
         controller: 'SignOutController'
       })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'views/signup.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/ct-paper.css',
+          '../assets/css/rpc.css',
+          '../assets/css/examples.css'
+        ]
+      })
       .state('home', {
         url: '/home',
         templateUrl: 'views/home.html',
@@ -165,7 +175,7 @@ angular.module('app', [
         controller: 'SigninController',
         authenticate: true
       });
-    $urlRouterProvider.otherwise('signin');
+    $urlRouterProvider.otherwise('website/home');
   }])
   .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
