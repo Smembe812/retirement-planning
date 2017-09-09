@@ -1,0 +1,95 @@
+<div class="card">
+    <div class="header">
+        <h4 class="title">Edit Profile</h4>
+    </div>
+    <div class="content">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control border-input" placeholder="Firstname" ng-model="client.firstname">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="client.lastname">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Spouse Name</label>
+                        <input type="text" class="form-control border-input" ng-model="client.spousename">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>
+                    <input type="radio" value="Male" ng-model="client.sex">
+                    <i></i>Male
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>
+                    <input type="radio" value="Female" ng-model="client.sex">
+                    <i></i>Female
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>
+                    <input type="radio" value="Other" ng-model="client.sex">
+                    <i></i>Other
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Marital Status</label>
+                        <input type="text" class="form-control border-input" ng-model="client.maritalStatus" placeholder="Married" value="Married">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Spouse Occupation</label>
+                        <input type="text" class="form-control border-input" ng-model="occupation" placeholder="Country" value="Malawi">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="text" class="form-control border-input" ng-model="client.dob" placeholder="Year/Month/Day"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Medical Condition</label>
+                        <input type="text" class="form-control border-input" ng-model="client.medicalCondition" placeholder="Medical Condition" >
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <!--<button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>-->
+                <a type="submit" class="btn btn-info btn-fill btn-wd" ng-click="addBio()">Update Profile</a>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

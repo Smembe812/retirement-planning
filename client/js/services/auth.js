@@ -1,7 +1,3 @@
-// Copyright IBM Corp. 2015. All Rights Reserved.
-// Node module: loopback-getting-started-intermediate
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
 
 angular
   .module('app')
@@ -29,11 +25,12 @@ angular
        });
     }
 
-    function register(email, password) {
+    function register(username, email, password) {
       return User
         .create({
-         email: email,
-         password: password
+          username: username,
+          email: email,
+          password: password
        })
        .$promise;
     }

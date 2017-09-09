@@ -45,7 +45,7 @@
       "emailVerificationRequired": true
     }
   },
-  "client-data": {
+  "clientData": {
     "dataSource": "postgre",
     "public": true
   },

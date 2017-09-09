@@ -2910,9 +2910,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            // INTERNAL. Use Client-data.clientHasData() instead.
-            "::get::Client-data::clientHasData": {
-              url: urlBase + "/client-data/:id/clientHasData",
+            // INTERNAL. Use ClientData.clientHasData() instead.
+            "::get::ClientData::clientHasData": {
+              url: urlBase + "/clientData/:id/clientHasData",
               method: "GET",
             },
 
@@ -3275,7 +3275,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
      * @description
      *
      * The object `Client.clientHasData` groups methods
-     * manipulating `Client-data` instances related to `Client`.
+     * manipulating `ClientData` instances related to `Client`.
      *
      * Call {@link lbServices.Client#clientHasData Client.clientHasData()}
      * to query all related instances.
@@ -3313,11 +3313,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R.clientHasData = function() {
-          var TargetResource = $injector.get("Client-data");
+          var TargetResource = $injector.get("ClientData");
           var action = TargetResource["::get::Client::clientHasData"];
           return action.apply(R, arguments);
         };
@@ -3355,11 +3355,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
+
         R.clientHasData.create = function() {
-          var TargetResource = $injector.get("Client-data");
+          var TargetResource = $injector.get("ClientData");
           var action = TargetResource["::create::Client::clientHasData"];
           return action.apply(R, arguments);
         };
@@ -3397,11 +3398,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R.clientHasData.createMany = function() {
-          var TargetResource = $injector.get("Client-data");
+          var TargetResource = $injector.get("ClientData");
           var action = TargetResource["::createMany::Client::clientHasData"];
           return action.apply(R, arguments);
         };
@@ -3436,7 +3437,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This method returns no data.
              */
         R.clientHasData.destroy = function() {
-          var TargetResource = $injector.get("Client-data");
+          var TargetResource = $injector.get("ClientData");
           var action = TargetResource["::destroy::Client::clientHasData"];
           return action.apply(R, arguments);
         };
@@ -3474,11 +3475,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R.clientHasData.update = function() {
-          var TargetResource = $injector.get("Client-data");
+          var TargetResource = $injector.get("ClientData");
           var action = TargetResource["::update::Client::clientHasData"];
           return action.apply(R, arguments);
         };
@@ -4589,13 +4590,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name lbServices.Client-data
- * @header lbServices.Client-data
+ * @name lbServices.ClientData
+ * @header lbServices.ClientData
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Client-data` model.
+ * A $resource object for interacting with the `ClientData` model.
  *
  * ## Example
  *
@@ -4605,25 +4606,25 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
  *
  */
   module.factory(
-    "Client-data",
+    "ClientData",
     [
       'LoopBackResource', 'LoopBackAuth', '$injector', '$q',
       function(LoopBackResource, LoopBackAuth, $injector, $q) {
         var R = LoopBackResource(
-        urlBase + "/client-data/:id",
+        urlBase + "/clientData/:id",
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Client-data.clientHasData() instead.
+            // INTERNAL. Use ClientData.clientHasData() instead.
             "prototype$__get__clientHasData": {
-              url: urlBase + "/client-data/:id/clientHasData",
+              url: urlBase + "/clientData/:id/clientHasData",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#create
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#create
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4652,18 +4653,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "create": {
-              url: urlBase + "/client-data",
+              url: urlBase + "/clientData",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#createMany
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#createMany
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4692,19 +4693,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "createMany": {
               isArray: true,
-              url: urlBase + "/client-data",
+              url: urlBase + "/clientData",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#patchOrCreate
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#patchOrCreate
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4728,18 +4729,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "patchOrCreate": {
-              url: urlBase + "/client-data",
+              url: urlBase + "/clientData",
               method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#replaceOrCreate
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#replaceOrCreate
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4768,18 +4769,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "replaceOrCreate": {
-              url: urlBase + "/client-data/replaceOrCreate",
+              url: urlBase + "/clientData/replaceOrCreate",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#upsertWithWhere
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#upsertWithWhere
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4807,18 +4808,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "upsertWithWhere": {
-              url: urlBase + "/client-data/upsertWithWhere",
+              url: urlBase + "/clientData/upsertWithWhere",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#exists
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#exists
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4845,14 +4846,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `exists` – `{boolean=}` -
              */
             "exists": {
-              url: urlBase + "/client-data/:id/exists",
+              url: urlBase + "/clientData/:id/exists",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#findById
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#findById
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4878,18 +4879,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "findById": {
-              url: urlBase + "/client-data/:id",
+              url: urlBase + "/clientData/:id",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#replaceById
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#replaceById
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4917,18 +4918,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "replaceById": {
-              url: urlBase + "/client-data/:id/replace",
+              url: urlBase + "/clientData/:id/replace",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#find
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#find
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4952,19 +4953,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "find": {
               isArray: true,
-              url: urlBase + "/client-data",
+              url: urlBase + "/clientData",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#findOne
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#findOne
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -4988,18 +4989,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "findOne": {
-              url: urlBase + "/client-data/findOne",
+              url: urlBase + "/clientData/findOne",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#updateAll
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#updateAll
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5028,14 +5029,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * Information related to the outcome of the operation
              */
             "updateAll": {
-              url: urlBase + "/client-data/update",
+              url: urlBase + "/clientData/update",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#deleteById
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#deleteById
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5059,18 +5060,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "deleteById": {
-              url: urlBase + "/client-data/:id",
+              url: urlBase + "/clientData/:id",
               method: "DELETE",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#count
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#count
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5097,14 +5098,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `count` – `{number=}` -
              */
             "count": {
-              url: urlBase + "/client-data/count",
+              url: urlBase + "/clientData/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#prototype$patchAttributes
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#prototype$patchAttributes
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5112,7 +5113,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - client-data id
+             *  - `id` – `{*}` - clientData id
              *
              *  - `options` – `{object=}` -
              *
@@ -5132,18 +5133,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
             "prototype$patchAttributes": {
-              url: urlBase + "/client-data/:id",
+              url: urlBase + "/clientData/:id",
               method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#createChangeStream
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#createChangeStream
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5173,7 +5174,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `changes` – `{ReadableStream=}` -
              */
             "createChangeStream": {
-              url: urlBase + "/client-data/change-stream",
+              url: urlBase + "/clientData/change-stream",
               method: "POST",
             },
 
@@ -5214,8 +5215,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#upsert
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#upsert
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5239,15 +5240,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R["upsert"] = R["patchOrCreate"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#updateOrCreate
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#updateOrCreate
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5271,15 +5272,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R["updateOrCreate"] = R["patchOrCreate"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#patchOrCreateWithWhere
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#patchOrCreateWithWhere
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5307,15 +5308,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#update
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#update
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5347,8 +5348,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#destroyById
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#destroyById
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5372,15 +5373,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R["destroyById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#removeById
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#removeById
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5404,15 +5405,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R["removeById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#prototype$updateAttributes
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#prototype$updateAttributes
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5420,7 +5421,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - client-data id
+             *  - `id` – `{*}` - clientData id
              *
              *  - `options` – `{object=}` -
              *
@@ -5440,7 +5441,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Client-data` object.)
+             * This usually means the response is a `ClientData` object.)
              * </em>
              */
         R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
@@ -5448,19 +5449,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
         /**
         * @ngdoc property
-        * @name lbServices.Client-data#modelName
-        * @propertyOf lbServices.Client-data
+        * @name lbServices.ClientData#modelName
+        * @propertyOf lbServices.ClientData
         * @description
         * The name of the model represented by this $resource,
-        * i.e. `Client-data`.
+        * i.e. `ClientData`.
         */
-        R.modelName = "Client-data";
+        R.modelName = "ClientData";
 
 
             /**
              * @ngdoc method
-             * @name lbServices.Client-data#clientHasData
-             * @methodOf lbServices.Client-data
+             * @name lbServices.ClientData#clientHasData
+             * @methodOf lbServices.ClientData
              *
              * @description
              *
@@ -5468,7 +5469,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - client-data id
+             *  - `id` – `{*}` - clientData id
              *
              *  - `options` – `{object=}` -
              *
@@ -5493,7 +5494,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R.clientHasData = function() {
           var TargetResource = $injector.get("Client");
-          var action = TargetResource["::get::Client-data::clientHasData"];
+          var action = TargetResource["::get::ClientData::clientHasData"];
           return action.apply(R, arguments);
         };
 

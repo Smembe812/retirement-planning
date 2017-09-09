@@ -1,12 +1,12 @@
 {
-  "name": "client-data",
+  "name": "clientData",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "firstNname": {
+    "firstName": {
       "type": "String",
       "required": true,
       "length": 256,

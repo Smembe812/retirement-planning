@@ -2,10 +2,7 @@
 angular.module('app')
   .controller('SigninController', ['$scope', 'AuthService', '$state',
     function($scope, AuthService, $state){
-      $scope.user = {
-        email: 'useremail@gmail.com',
-        password: 'xxxxxxxx'
-      };
+    
       $scope.loginPage = true;
       $scope.signIn = function() {
         AuthService.login($scope.client.email, $scope.client.password)

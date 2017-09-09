@@ -11,7 +11,7 @@
   "relations": {
     "clientHasData": {
       "type": "hasOne",
-      "model": "client-data",
+      "model": "clientData",
       "foreignKey": "clientId"
     },
     "medicalConditions": {

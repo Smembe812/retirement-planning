@@ -9,7 +9,7 @@ dataSource.automigrate('client', function(err){
   dataSource.disconnect();
 });
 
-dataSource.automigrate('client-data', function(err){
+dataSource.automigrate('clientData', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });

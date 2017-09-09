@@ -160,7 +160,8 @@ angular.module('app', [
           '../assets/css/ct-paper.css',
           '../assets/css/rpc.css',
           '../assets/css/examples.css'
-        ]
+        ],
+        controller: 'SignUpController'
       })
       .state('home', {
         url: '/home',
@@ -173,6 +174,19 @@ angular.module('app', [
           '../assets/css/themify-icons.css'
         ],
         controller: 'SigninController',
+        authenticate: true
+      })
+      .state('planner-bio', {
+        url: '/planner/bio',
+        templateUrl: '../client-bio/clientbio.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/rpc.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'ClientBioController',
         authenticate: true
       });
     $urlRouterProvider.otherwise('website/home');
