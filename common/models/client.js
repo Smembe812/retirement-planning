@@ -1,6 +1,49 @@
 'use strict';
 
 module.exports = function(Client) {
+
+  Client.getClientBio = function(ctx, cb){
+    var clientid = ctx.args.id;
+    console.log(clientid);
+
+    Client.findById(clientid, function(err, client){
+      client.clientHasData(function(err, clientdata){
+        if (err) throw err;
+        var clientdata = clientdata;
+        client.medicalConditions(function(err, medicalConditions) {
+          if (err) throw err;
+
+          client.spouses(function(err, spouses){
+            if (err) throw err;
+            var spouse = spouses;
+
+
+            var clientbio = {
+              clientData: clientdata,
+              spouses: spouse,
+              medicalConditions: medicalConditions
+            }
+
+            ctx.res.json(clientbio);
+          });
+        });
+      });
+    });
+
+  }
+
+  Client.remoteMethod('getClientBio', {
+    description: 'get client bio data',
+    accepts:  [
+        { arg: 'ctx', type: 'object', http: { source:'context' } },
+        { arg: 'id', type: 'number'}
+    ],
+    returns: [
+      {arg: 'clientbio', type: 'string', root: true}
+    ],
+    http: {path: "/:id/bio", verb: 'get'}
+  });
+
   //send verification email after registration
   Client.afterRemote('create', function(ctx, client, next) {
     //var Gallery = User.app.models.Gallery;
