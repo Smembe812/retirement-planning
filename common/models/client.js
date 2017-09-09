@@ -1,7 +1,12 @@
 'use strict';
 
 module.exports = function(Client) {
-
+  /**
+   * [method for getting client bio data]
+   * @param  {[type]}   ctx [description]
+   * @param  {Function} cb  [description]
+   * @return {[type]}       [description]
+   */
   Client.getClientBio = function(ctx, cb){
     var clientid = ctx.args.id;
     console.log(clientid);

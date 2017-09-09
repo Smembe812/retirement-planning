@@ -2910,6 +2910,41 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            /**
+             * @ngdoc method
+             * @name lbServices.Client#getClientBio
+             * @methodOf lbServices.Client
+             *
+             * @description
+             *
+             * get client bio data
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `ctx` – `{object=}` -
+             *
+             *  - `id` – `{number=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Client` object.)
+             * </em>
+             */
+            "getClientBio": {
+              url: urlBase + "/clients/:id/bio",
+              method: "GET",
+            },
+
             // INTERNAL. Use ClientData.clientHasData() instead.
             "::get::ClientData::clientHasData": {
               url: urlBase + "/clientData/:id/clientHasData",
@@ -3358,7 +3393,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ClientData` object.)
              * </em>
              */
-
         R.clientHasData.create = function() {
           var TargetResource = $injector.get("ClientData");
           var action = TargetResource["::create::Client::clientHasData"];

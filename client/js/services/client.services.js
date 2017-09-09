@@ -20,29 +20,9 @@ angular.module('app')
           * @return {[object]} [clientbio object]
           */
         getClientBio: function(){
-          var medicalConditions = Client.medicalConditions(
-                {id: $rootScope.currentUser.id}
-             ).$promise.then(
-                function(results){
-                   return results;
-                }
-            );
-            console.log(medicalConditions);
-          var clientData = Client.clientHasData;
-          var spouse = Client.spouses;
-          var clientbio = {};
-          return clientbio = {
-            firstname: clientData.firstName,
-            lastname: clientData.lastName,
-            dob: clientData.dob,
-            maritalStatus: clientData.maritalStatus,
-            spouse: {
-               name: spouse.name,
-               dob: spouse.dob,
-               occupation: spouse.occupation
-            },
-            medicalConditions: medicalConditions
-          }
+          return Client.getClientBio(
+             {id:$rootScope.currentUser.id}
+          ).$promise;
         },
 
          /**
