@@ -20,71 +20,76 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <p class="input-group">
+                         <input type="text" class="form-control border-input" uib-datepicker-popup ng-model="client.dob" is-open="opened" datepicker-options="dateOptions"  ng-required="true" close-text="Close" placeholder="yyyy-MM-dd" />
+                         <span class="input-group-btn">
+                           <button type="button" class="btn btn-default" ng-click="open()"><i class="fa fa-calendar"></i></button>
+                         </span>
+                       </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="btn-group bootstrap-select dropup">
+                                <label>Sex</label>
+                                <select name="huge" class="selectpicker" data-style="no-style form-control" data-menu-style="" tabindex="-98">
+                                <option disabled="" selected=""> Choose Sex</option>
+                                <option value="female" ng-model="client.sex">Female </option>
+                                <option value="male" ng-model="client.sex">Male</option>
+                                <option value="other" ng-model="client.sex">Other</option>
+                            </select></div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="btn-group bootstrap-select dropup">
+                            <label>Marital Status</label>
+                            <select name="huge"  ng-click="wecollapse()" data-style="no-style form-control" data-menu-style="" tabindex="-98" ng-model="client.maritalStatus">
+                                <option disabled="" selected="" value=""> Choose Marital Status</option>
+                                 <option ng-repeat="option in data.availableOptions" value="{{option.value}}"  ng-click="wecollapse()">{{option.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" uib-collapse="isCollapsed">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Spouse Name</label>
                         <input type="text" class="form-control border-input" ng-model="client.spousename">
                     </div>
                 </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>
-                    <input type="radio" value="Male" ng-model="client.sex">
-                    <i></i>Male
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>
-                    <input type="radio" value="Female" ng-model="client.sex">
-                    <i></i>Female
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>
-                    <input type="radio" value="Other" ng-model="client.sex">
-                    <i></i>Other
-                  </label>
-                </div>
-              </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Marital Status</label>
-                        <input type="text" class="form-control border-input" ng-model="client.maritalStatus" placeholder="Married" value="Married">
-                    </div>
-                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Spouse Occupation</label>
-                        <input type="text" class="form-control border-input" ng-model="occupation" placeholder="Country" value="Malawi">
+                        <input type="text" class="form-control border-input" ng-model="client.occupation" placeholder="Country" value="Malawi">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Date of Birth</label>
-                        <input type="text" class="form-control border-input" ng-model="client.dob" placeholder="Year/Month/Day"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
+                <!--<div class="col-md-12">
                     <div class="form-group">
                         <label>Medical Condition</label>
                         <input type="text" class="form-control border-input" ng-model="client.medicalCondition" placeholder="Medical Condition" >
                     </div>
+                </div>-->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Medical Conditions</label>
+                        <tags-input ng-model="tags" placeholder="Medical Conditions"></tags-input>
+                    </div>
                 </div>
             </div>
+
+
             <div class="text-center">
                 <!--<button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>-->
                 <a type="submit" class="btn btn-info btn-fill btn-wd" ng-click="addBio()">Update Profile</a>

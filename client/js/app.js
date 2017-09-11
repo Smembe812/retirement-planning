@@ -2,7 +2,9 @@
 angular.module('app', [
     'ui.router',
     'angularCSS',
-    'lbServices'
+    'lbServices',
+    'ui.bootstrap',
+    'ngTagsInput'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
@@ -184,6 +186,7 @@ angular.module('app', [
           '../assets/css/animate.css',
           '../assets/css/rpc.css',
           '../assets/css/paper-dashboard.css',
+          '../assets/css/ng-tags-input.min.css',
           '../assets/css/themify-icons.css'
         ],
         controller: 'ClientBioController',

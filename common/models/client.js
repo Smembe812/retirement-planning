@@ -3,9 +3,9 @@
 module.exports = function(Client) {
   /**
    * [method for getting client bio data]
-   * @param  {[type]}   ctx [description]
-   * @param  {Function} cb  [description]
-   * @return {[type]}       [description]
+   * @param  {[object]}   ctx [current context object]
+   * @param  {Function} cb  [callback]
+   * @return {[object]}     [clientbio]
    */
   Client.getClientBio = function(ctx, cb){
     var clientid = ctx.args.id;
@@ -20,6 +20,10 @@ module.exports = function(Client) {
 
           client.spouses(function(err, spouses){
             if (err) throw err;
+
+            if (spouses == null){
+              spouses = {}
+            }
             var spouse = spouses;
 
 

@@ -21,7 +21,7 @@ angular.module('app')
           */
         getClientBio: function(){
           return Client.getClientBio(
-             {id:$rootScope.currentUser.id}
+             {id:1}
           ).$promise;
         },
 

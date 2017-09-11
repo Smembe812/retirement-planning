@@ -3,16 +3,6 @@
     "name": "db",
     "connector": "memory"
   },
-  "postgre": {
-    "host": "localhost",
-    "port": 5432,
-    "url": "",
-    "database": "rcp_db",
-    "password": "1234",
-    "name": "postgre",
-    "user": "postgres",
-    "connector": "postgresql"
-  },
   "foremails": {
     "name": "foremails",
     "connector": "mail",
@@ -26,8 +16,8 @@
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "psemberekajr@gmail.com",
-          "pass": "@Wali53mb3@1921"
+          "user": "akulinandia@gmail.com",
+          "pass": "@littleone@"
         }
       }
     ]
