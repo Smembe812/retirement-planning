@@ -1,0 +1,6 @@
+/node_modules
+/server/datasources.json
+/server/datasources.local.js
+/server/config.local.js
+/server/model-config.json
+.env
