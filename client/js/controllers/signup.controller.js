@@ -3,6 +3,8 @@
 angular.module('app')
 .controller('SignUpController', ['Client','$scope','AuthService','ClientService','$state',
   function(Client,$scope,AuthService, ClientService, $state) {
+
+      //initialize $scope.client
       $scope.client = {
         firstname: null,
         lastname: null,
@@ -14,6 +16,10 @@ angular.module('app')
         birthyear: null
       }
 
+      /**
+       * [initialize client registration]
+       * @return {[promise]} [client data created on success]
+       */
       $scope.startRegistration = function (){
         if ($scope.client.password === $scope.client.passwordConfirm && $scope.client.password != undefined){
             var client = {
@@ -23,30 +29,32 @@ angular.module('app')
             }
             console.log(client);
 
-        $scope.res = AuthService.register(
-          client.username,
-          client.email,
-          client.password
-        )
-        .then(
-          function(res) {
-            console.log(res);
-            var dob = $scope.client.birthyear+"-"+$scope.client.birthmonth+"-"+$scope.client.birthday;
-            console.log(dob);
-            $scope.data = ClientService.createClientdata(
-              $scope.client.firstname,
-              $scope.client.lastname,
-              null,
-              dob,
-              $scope.client.sex,
-              res.client.id
-            ).then()
-            $state.transitionTo('signin');
-          });
+            //register client, take client.username, client.email, client.password
+            $scope.res = AuthService.register(
+              client.username,
+              client.email,
+              client.password
+            )
+            .then(
+              function(res) {
+                //create dob format yyyy-mm-dd
+                var dob = $scope.client.birthyear+"-"+$scope.client.birthmonth+"-"+$scope.client.birthday;
 
-      }else{
+                //create client data
+                $scope.data = ClientService.createClientdata(
+                  $scope.client.firstname,
+                  $scope.client.lastname,
+                  null,
+                  dob,
+                  $scope.client.sex,
+                  res.client.id
+                ).then()
+                $state.transitionTo('signin');
+              });
 
-      }
+          }else{
+            //password missmatch handling
+          }
       };
 
 
