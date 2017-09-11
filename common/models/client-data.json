@@ -38,12 +38,27 @@
     },
     "maritalStatus": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 256,
       "precision": null,
       "scale": null,
       "postgresql": {
         "columnName": "marital_status",
+        "dataType": "character varying",
+        "dataLength": 256,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      }
+    },
+    "sex": {
+      "type": "String",
+      "required": true,
+      "length": 256,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "sex",
         "dataType": "character varying",
         "dataLength": 256,
         "dataPrecision": null,

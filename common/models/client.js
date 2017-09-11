@@ -64,7 +64,6 @@ module.exports = function(Client) {
       subject: 'Thanks for registering.',
       client: client
     };
-
     /**
      * [verify sign up email]
      * @param  {[object]} err      [throw error]
@@ -80,7 +79,13 @@ module.exports = function(Client) {
 
       console.log('> verification email sent:', response);
     });
-    next();
+    var response = {
+      client: {
+        id: client.id,
+        email: client.email
+      }
+    }
+    ctx.res.json(response);
   });
 
   //send password reset link when requested

@@ -54,14 +54,21 @@ angular.module('app')
           * @param  {[string]} maritalStatus [cliet's marital status]
           * @return {[promise]}              [for processing success and failiures]
           */
-         createClientdata: function(firstname, lastname, maritalStatus, dob){
+         createClientdata: function(firstname, lastname, maritalStatus, dob, sex, clientId){
              return ClientData.create({
                firstName: firstname,
                lastName: lastname,
                maritalStatus: maritalStatus,
+               sex: sex,
                dob: dob,
-               clientId: $rootScope.currentUser.id
+               clientId: clientId
              }).$promise
+          },
+
+          updateClientData: function(){
+            return ClientData.update({
+
+            }).$promise
           },
 
           /**
