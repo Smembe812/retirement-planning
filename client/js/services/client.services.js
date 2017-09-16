@@ -1,4 +1,4 @@
-/**
+   /**
  * @ngdoc client services
  * @description handles clients CRUD operations
  */
@@ -24,6 +24,23 @@ angular.module('app')
              {id:$rootScope.$id}
           ).$promise;
         },
+
+        updateDob: function(id, dob){
+           return ClientData.prototype$patchAttributes(
+             {id: id},
+             {dob: dob}
+          ).$promise
+         },
+
+         updateName: function(id, firstname, lastname){
+            return ClientData.prototype$patchAttributes(
+               {id: id},
+               {
+                  firstName: firstname,
+                  lastName: lastname
+               }
+            ).$promise
+         },
 
         /**
          * [patch marital status]
@@ -56,6 +73,17 @@ angular.module('app')
           */
          getMedicalConditions: function() {
             return Client.medicalConditions({id:$rootScope.$id}).$promise;
+         },
+
+         /**
+          * [delete a medical condition]
+          * @param  {[integer]} id [integer id of medical condition]
+          * @return {[promise]}    [handle success or error]
+          */
+         destroyMedicalCondition: function(id){
+           return MedicalCondition.deleteById(
+             {id: id}
+          ).$promise
          },
 
          /**

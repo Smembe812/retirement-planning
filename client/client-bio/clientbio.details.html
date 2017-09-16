@@ -1,6 +1,6 @@
 <div class="card" ng-show="closed" >
 <div class="header">
-    <h4 class="title">About me</h4>
+    <h3 class="title"><strong>About me</strong></h3>
 </div>
 <div class="content">
     <ul class="list-unstyled team-members">
@@ -13,7 +13,7 @@
                     </p>
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-4">
-                    <button class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
+                    <button ng-click="openUpdateNameModal()" class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
 
                 </div>
             </div>

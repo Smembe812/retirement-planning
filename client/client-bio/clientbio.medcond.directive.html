@@ -1,0 +1,35 @@
+<div class="card" ng-show="medicalData" >
+<div class="header">
+    <h4 class="title">Medical Conditions</h4>
+</div>
+
+<div class="content">
+    <form>
+        <div class="col-md-9">
+            <div class="form-group">
+                <tags-input ng-model="tags" placeholder="Medical Conditions" replace-spaces-with-dashes="false"></tags-input>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-green" ng-click="addMedicalConditions()"><i class="ti ti-pencil"></i>Add</button>
+        </div>
+    </form>
+    <ul class="list-unstyled team-members">
+
+        <li ng-repeat="condition in client.medicalConditions">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <p>
+                        {{condition.text}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
+                    <button class="btn btn-red" ng-click="deleteMedicalCondition(condition.id)"><i class="ti ti-pencil"></i>Delete</button>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+</div>
