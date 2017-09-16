@@ -5,43 +5,105 @@
 'use strict';
 
 angular.module('app')
-  .controller('ClientBioController', ['$scope', '$state', '$rootScope', 'ClientService',
-  function($scope, $state, $rootScope, ClientService){
+  .controller('ClientBioController',[
+    '$scope',
+    '$state',
+    '$rootScope',
+    'ClientService',
+    '$uibModal',
+    '$log',
+  function($scope, $state, $rootScope, ClientService, $uibModal, $log){
+
 
     $scope.isCollapsed = true;
     $scope.tags;
+    var clone = {}
+    $scope.client = {}
+    $scope.animationsEnabled = true;
+    $scope.items = ['item1', 'item2', 'item3'];
+    $scope.openModal = function (size) {
+      angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
 
+       var modalInstance = $uibModal.open({
+         animation: true,
+         templateUrl: 'myModalContent.html',
+         controller: 'ModalInstanceCtrl',
+         size: size,
+         resolve: {
+           items: function () {
+             return $scope.items;
+           }
+         }
+       });
+
+       modalInstance.result.then(function (selectedItem) {
+         $scope.selected = selectedItem;
+       }, function () {
+         $log.info('Modal dismissed at: ' + new Date());
+       });
+     };
     /**
      * [shows spouse name and occupation inputs when maritalStatus is married]ion]
      */
     $scope.wecollapse = function(){
-      console.log($scope.client.maritalStatus);
-      if ($scope.client.maritalStatus === "married"){
+      if ($scope.client.maritalStatus === "Married"){
         $scope.isCollapsed = false;
       }else {
         $scope.isCollapsed = true;
-        console.log($scope.client.maritalStatus);
       }
     }
 
     $scope.data = {
      model: null,
      availableOptions: [
-       {value: 'married', name: 'Married'},
-       {value: 'notmarried', name: 'Not Married'}
+       {value: 'Married', name: 'Married'},
+       {value: 'Not married', name: 'Not Married'}
      ]
     };
 
+    $scope.closed = false;
+
+    $scope.openClosed = function(){
+      $scope.closed = true;
+    }
     /**
      * [initialize client scope]
      */
     $scope.ph = ClientService.getClientBio().then(
       function(bio){
+
+        function marital(){
+          if(bio.clientData.maritalStatus != null){
+            return bio.clientData.maritalStatus;
+          }else {
+            console.log(bio.clientData.maritalStatus);
+            return "Choose your marital status";
+          }
+        }
+        var fullname = bio.clientData.firstName + " " +bio.clientData.lastName;
         $scope.client = {
           firstname: bio.clientData.firstName,
           lastname: bio.clientData.lastName,
-          maritalStatus: bio.clientData.maritalStatus
+          fullname: fullname,
+          sex: bio.clientData.sex,
+          maritalStatus: marital(),
+          dob: bio.clientData.dob,
+          spousename: bio.spouses.name,
+          occupation: bio.spouses.occupation
         };
+
+        clone = {
+          client: {
+            firstname: bio.clientData.firstName,
+            lastname: bio.clientData.lastName,
+            maritalStatus: "Choose your marital status",
+            dob: bio.clientData.dob,
+            id: bio.clientData.id,
+            medicalConditions: [],
+            spouse:bio.spouses
+          }
+        };
+        $scope.wecollapse();
       }
     );
 
@@ -54,6 +116,24 @@ angular.module('app')
        $scope.opened = true;
        console.log($scope.opened);
      };
+
+     function updateStatus(){
+       if ($scope.client.maritalStatus != "Choose your marital status" && $scope.client.maritalStatus != null) {
+
+         $scope.upstatus = ClientService.updateMaritalStatus(
+           clone.client.id,
+           $scope.client.maritalStatus
+         ).then(
+           function(resolved){
+             console.log(resolved);
+
+           },
+           function(err){
+             console.log(err);
+           }
+         )
+       }
+     }
 
      /**
       * [creates medical conditions in db]
@@ -94,6 +174,8 @@ angular.module('app')
      * [add's spouse of client in db]
      */
     function addSpouse(){
+      if ($scope.client.spousename != null && $scope.client.dob != null && $scope.client.occupation) {
+
         $scope.res = ClientService.createSpouse(
           $scope.client.spousename,
           $scope.client.dob,
@@ -106,6 +188,9 @@ angular.module('app')
             console.log(err);
           }
         )
+      }else {
+        //handle spouse input error
+      }
     }
 
     /**
@@ -121,15 +206,61 @@ angular.module('app')
     }
 
     function print(){
-      console.log($scope.tags);
+      var mcarray = $scope.tags;
+      var clonearraylength = clone.client.medicalConditions.length;
+      console.log(clonearraylength);
+      console.log(mcarray.length);
+      for (var i = (clonearraylength-1); i < (mcarray.length - clonearraylength); i++) {
+
+        $scope.mc = ClientService.createMedicalConditions(mcarray[i].text).then(
+          function(resolved){
+            console.log(resolved);
+          },
+          function(err){
+            console.log(err);
+          }
+        )
+      }
     }
+
+    var tata = ClientService.getMedicalConditions().then(
+        function(tags){
+          var tagsarray = []
+          for (var i = 0; i < tags.length; i++) {
+            tagsarray[i] = {"text": tags[i].name}
+          }
+          clone.client.medicalConditions = tagsarray;
+          $scope.tags = tagsarray;
+          console.log($scope.tags.length);
+        }, function(err){
+          console.log(err);
+        }
+      );
 
     $scope.addBio = function(){
       //addMedicalCondition();
       //addClientData();
-      //addSpouse();
+      updateStatus();
+      addSpouse();
       //getBio();
-      print();
+      //print();
     }
   }
 ]);
+
+angular.module('app').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+
+  $scope.items = items;
+
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $uibModalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+});

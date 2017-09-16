@@ -13,7 +13,7 @@ angular.module('app')
    'MedicalCondition',
    '$rootScope',
    '$q',
-    function(Client, ClientData, Spouse, MedicalCondition, $rootScope){
+    function(Client, ClientData, Spouse, MedicalCondition, $rootScope, $q){
       return {
          /**
           * '[gets client's bio]'
@@ -21,10 +21,22 @@ angular.module('app')
           */
         getClientBio: function(){
           return Client.getClientBio(
-             {id:1}
+             {id:$rootScope.$id}
           ).$promise;
         },
 
+        /**
+         * [patch marital status]
+         * @param  {[integer]} id     [id of client data]
+         * @param  {[string]} status [married or not married]
+         * @return {[promise]}      [description]
+         */
+        updateMaritalStatus: function(id, status){
+           return ClientData.prototype$patchAttributes(
+            {id: id},
+            {maritalStatus: status}
+         ).$promise
+        },
          /**
           * [creates client medical Conditions]
           * @param  {[string]} name [name of medical condition]
@@ -43,7 +55,7 @@ angular.module('app')
           * @return {[array]} [medical conditions array]
           */
          getMedicalConditions: function() {
-            return Client.medicalConditions().$promise;
+            return Client.medicalConditions({id:$rootScope.$id}).$promise;
          },
 
          /**
@@ -100,7 +112,7 @@ angular.module('app')
            * @return {[array]} [array of spouses]
            */
           getSpouse: function(){
-             return Client.spouses().$promise;
+             return Client.spouses({id:$rootScope.$id}).$promise;
           }
 
         }

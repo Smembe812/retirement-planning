@@ -51,9 +51,9 @@
                     <div class="form-group">
                         <div class="btn-group bootstrap-select dropup">
                             <label>Marital Status</label>
-                            <select name="huge"  ng-click="wecollapse()" data-style="no-style form-control" data-menu-style="" tabindex="-98" ng-model="client.maritalStatus">
-                                <option disabled="" selected="" value=""> Choose Marital Status</option>
-                                 <option ng-repeat="option in data.availableOptions" value="{{option.value}}"  ng-click="wecollapse()">{{option.name}}</option>
+                            <select ng-click="wecollapse()" ng-model="client.maritalStatus"onkeypress="">
+                                <option disabled="" selected="">Choose your marital status</option>
+                                <option ng-repeat="option in data.availableOptions" value="{{option.value}}"  ng-click="wecollapse()">{{option.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Medical Conditions</label>
-                        <tags-input ng-model="tags" placeholder="Medical Conditions"></tags-input>
+                        <tags-input ng-model="tags" placeholder="Medical Conditions" replace-spaces-with-dashes="false"></tags-input>
                     </div>
                 </div>
             </div>

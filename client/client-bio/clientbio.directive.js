@@ -3,7 +3,7 @@
 angular.module('app')
   .directive('clientBio', function(){
     return{
-      templateUrl: 'client-bio/clientbio.directive.html',
+      templateUrl: 'client-bio/clientbio.data.html',
       replace: true
     }
   })

@@ -4,7 +4,8 @@ angular.module('app', [
     'angularCSS',
     'lbServices',
     'ui.bootstrap',
-    'ngTagsInput'
+    'ngTagsInput',
+    'ngAnimate'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
@@ -184,8 +185,8 @@ angular.module('app', [
         css: [
           '../signin/bootstrap.min.css',
           '../assets/css/animate.css',
-          '../assets/css/rpc.css',
           '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
           '../assets/css/ng-tags-input.min.css',
           '../assets/css/themify-icons.css'
         ],

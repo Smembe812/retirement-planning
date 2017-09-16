@@ -174,6 +174,9 @@ body{
 .font-indigo-300{
   color: #7986CB;
 }
+.font-medium{
+  font-size: 1.3em;
+}
 .align-center{
   text-align: center;
 }
@@ -269,9 +272,9 @@ body{
 .form-control{
   border-radius: 0;
 }
-.input-group, .form-group{
+/*.input-group, .form-group{
   border: solid thin #7986CB
-}
+}*/
 textarea.form-control {
   border: solid thin #7986CB;
   margin-bottom: 10px;
@@ -287,4 +290,44 @@ textarea.form-control:focus, textarea.form-control:active {
     min-width: 40px;
     width: 40px;
     margin: 5px;
+}
+.btn-blue {
+  border-width: 2px;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1.35em;
+  border: none;
+  border-radius: 0.1875rem;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  padding: 11px 22px;
+  cursor: pointer;
+  background-color: #1A237E;
+  color: #FFFFFF; }
+.btn-red {
+  border-width: 2px;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1.35em;
+  border: none;
+  border-radius: 0.1875rem;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  padding: 11px 22px;
+  cursor: pointer;
+  background-color: #c0392b;
+  color: #FFFFFF; }
+.btn-green {
+  border-width: 2px;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1.35em;
+  border: none;
+  border-radius: 0.1875rem;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  padding: 11px 22px;
+  cursor: pointer;
+  background-color: #16a085;
+  color: #FFFFFF; }
+.btn-blue:hover{
+  background: #FAFAFA;
+  color: #1A237E;
 }

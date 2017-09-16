@@ -515,7 +515,7 @@ hr {
 
 .btn,
 .navbar .navbar-nav > li > a.btn {
-  border-radius: 20px;
+  border-radius: 2px;
   box-sizing: border-box;
   border-width: 2px;
   background-color: transparent;
@@ -1744,9 +1744,9 @@ select {
   overflow: visible;
 }
 
-.card {
-  border-radius: 6px;
-  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+.modal-content, .card {
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
   background-color: #FFFFFF;
   color: #252422;
   margin-bottom: 20px;
@@ -1784,7 +1784,6 @@ select {
 .card label {
   font-size: 14px;
   font-weight: 400;
-  color: #9A9A9A;
   margin-bottom: 0px;
 }
 .card .category i,
@@ -1885,7 +1884,7 @@ select {
 }
 
 .card-user .image {
-  border-radius: 8px 8px 0 0;
+  border-radius: 2px 2px 0 0;
   height: 150px;
   position: relative;
   overflow: hidden;
@@ -1929,7 +1928,7 @@ select {
   margin-top: 10px;
 }
 .card-user .content {
-  min-height: 200px;
+  /*min-height: 200px;*/
 }
 .card-user.card-plain .avatar {
   height: 190px;
