@@ -1786,6 +1786,27 @@ select {
   font-weight: 400;
   margin-bottom: 0px;
 }
+.card .icon {
+  display: block;
+  margin: 0 auto;
+  top: 60%;
+  position: relative;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  text-align: center; }
+  .card .icon i {
+    font-size: 60px;
+    padding: 18px;
+    width: 110px;
+    border: 2px solid #ccc5b9;
+    border-radius: 50%;
+    height: 110px; }
+.col-lg-4 .card .icon i {
+  font-size: 80px;
+  padding: 22px; }
+
+  .card .header.header-with-icon {
+    height: 150px; }
 .card .category i,
 .card label i {
   font-size: 16px;
