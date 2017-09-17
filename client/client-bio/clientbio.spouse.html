@@ -1,0 +1,51 @@
+<div class="card" ng-show="spouseData" >
+<div class="header">
+    <h3 class="title"><strong>Spouse Data</strong></h3>
+</div>
+<div class="content">
+    <ul class="list-unstyled team-members">
+        <li>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Name</strong></span>
+                    <p ng-bind="client.spouse.name">
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="openUpdateSpouseNameModal()" class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Date of Birth</strong></span>
+                    <p>
+                        {{client.spouse.dob | date}}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateSpouseDoBModal()" class="btn btn-blue btn-sm"><i class="ti ti-pencil"></i>Edit</button>
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Occupation</strong></span>
+                    <p>
+                        {{client.spouse.occupation}}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateSpouseOccupationModal()" class="btn btn-blue"><i class="ti ti-pencil"></i><span>Edit</span></button>
+
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+</div>

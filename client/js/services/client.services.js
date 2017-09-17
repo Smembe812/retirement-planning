@@ -141,9 +141,46 @@ angular.module('app')
            */
           getSpouse: function(){
              return Client.spouses({id:$rootScope.$id}).$promise;
-          }
+          },
 
-        }
+          /**
+           * [update spouse name]
+           * @return {[promise]} [handle erros and success]
+           */
+          updateSpouseName: function(id, name){
+             return Spouse.prototype$patchAttributes(
+                {id: id},
+                {name: name}
+             ).$promise
+          },
+
+          /**
+           * [update spouse occupation]
+           * @param  {[integer]} id       [id of spouse]
+           * @param  {[String]} occupation [occupation of spouse]
+           * @return {[promise]}            [handle errors and successes]
+           */
+          updateSpouseOccupation: function(id, occupation){
+             return Spouse.prototype$patchAttributes(
+                {id: id},
+                {occupation: occupation}
+             ).$promise
+
+          },
+
+          /**
+           * [update spouse date of birth]
+           * @param  {[integer]} id  [id of spouse]
+           * @param  {[string]} dob [date of birth]
+           * @return {[$promise]}     [for handling successes and errors]
+           */
+          updateSpouseDoB: function(id, dob){
+             return Spouse.prototype$patchAttributes(
+                {id: id},
+                {dob: dob}
+             ).$promise
+          }
+       }
       }
    ]
 );

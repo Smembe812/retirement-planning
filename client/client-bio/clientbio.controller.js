@@ -27,44 +27,155 @@ angular.module('app')
 
        var modalInstance = $uibModal.open({
          animation: true,
-         templateUrl: 'myModalContent.html',
-         controller: 'ModalInstanceCtrl',
+         templateUrl: 'update.dob.html',
+         controller: 'updateDobCtrl',
          size: size,
          resolve: {
-           items: function () {
-             return $scope.items;
+           client: function () {
+             return $scope.client;
            }
          }
        });
 
-       modalInstance.result.then(function (selectedItem) {
-         $scope.selected = selectedItem;
+       modalInstance.result.then(function (client) {
+         ClientService.updateDob($rootScope.$id, client.dob).then(
+           function(results){
+             $scope.client = client;
+           },
+           function(err){
+             console.log(err);
+           }
+         )
+
        }, function () {
          $log.info('Modal dismissed at: ' + new Date());
        });
      };
-
+     /**
+      * [open modal for client name update]
+      * @param  {[string]} size [size of modal]
+      * @return {[modal]}      [description]
+      */
      $scope.openUpdateNameModal = function (size) {
        angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
 
         var modalInstance = $uibModal.open({
           animation: true,
-          templateUrl: 'updateName.html',
+          templateUrl: 'update.name.html',
           controller: 'UpdateNameCtrl',
           size: size,
           resolve: {
-            items: function () {
-              return $scope.items;
+            client: function () {
+              return $scope.client;
             }
           }
         });
 
-        modalInstance.result.then(function (selectedItem) {
-          $scope.selected = selectedItem;
+        modalInstance.result.then(function (client) {
+          ClientService.updateName(
+            $rootScope.$id,
+            client.firstname,
+            client.lastname
+          ).then(
+            function(results){
+              $scope.client = client;
+              console.log($scope.client);
+            },
+            function(err){
+              console.log(err);
+            }
+          )
         }, function () {
           $log.info('Modal dismissed at: ' + new Date());
         });
       };
+
+      $scope.openUpdateSpouseNameModal = function (size) {
+        angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
+
+         var modalInstance = $uibModal.open({
+           animation: true,
+           templateUrl: 'update.spouse.html',
+           controller: 'UpdateSpouseNameCtrl',
+           size: size,
+           resolve: {
+             spouse: function () {
+               return $scope.client.spouse;
+             }
+           }
+         });
+
+         modalInstance.result.then(function (spouse) {
+           ClientService.updateSpouseName(spouse.id, spouse.name).then(
+             function(results){
+               $scope.client.spouse = spouse;
+             }, function(err) {
+               console.log(err);
+             }
+           )
+         }, function () {
+           $log.info('Modal dismissed at: ' + new Date());
+         });
+       };
+
+       $scope.updateSpouseDoBModal = function (size) {
+         angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
+
+          var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'update.spouseDoB.html',
+            controller: 'SpouseDoBUpCtrl',
+            size: size,
+            resolve: {
+              spouse: function () {
+                return $scope.client.spouse;
+              }
+            }
+          });
+
+          modalInstance.result.then(function (spouse) {
+            ClientService.updateSpouseDoB(spouse.id, spouse.dob).then(
+              function(results){
+                $scope.client.spouse = spouse;
+              }, function(err) {
+                console.log(err);
+              }
+            )
+          }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+          });
+        };
+
+        $scope.updateSpouseOccupationModal = function (size) {
+          angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
+
+           var modalInstance = $uibModal.open({
+             animation: true,
+             templateUrl: 'update.spouseocc.html',
+             controller: 'SpouseOccUpCtrl',
+             size: size,
+             resolve: {
+               spouse: function () {
+                 return $scope.client.spouse;
+               }
+             }
+           });
+
+           modalInstance.result.then(function (spouse) {
+             ClientService.updateSpouseOccupation(
+               spouse.id,
+               spouse.occupation
+             ).then(
+               function(results){
+                 $scope.client.spouse = spouse;
+               }, function(err) {
+                 console.log(err);
+               }
+             )
+           }, function () {
+             $log.info('Modal dismissed at: ' + new Date());
+           });
+         };
     /**
      * [shows spouse name and occupation inputs when maritalStatus is married]ion]
      */
@@ -86,10 +197,14 @@ angular.module('app')
 
     $scope.closed = false;
     $scope.medicalData = false;
+    $scope.spouseData = false;
 
     $scope.openClosed = function(){
       if ($scope.medicalData) {
         $scope.medicalData = false;
+      }
+      if ($scope.spouseData) {
+        $scope.spouseData = false;
       }
       $scope.closed = true;
     }
@@ -98,7 +213,20 @@ angular.module('app')
       if ($scope.closed) {
         $scope.closed = false;
       }
+      if ($scope.spouseData) {
+        $scope.spouseData = false;
+      }
       $scope.medicalData = true;
+    }
+
+    $scope.openSpouseData = function() {
+      if ($scope.closed) {
+        $scope.closed = false;
+      }
+      if ($scope.medicalData) {
+        $scope.medicalData = false;
+      }
+      $scope.spouseData = true;
     }
     /**
      * [initialize client scope]
@@ -122,8 +250,7 @@ angular.module('app')
           sex: bio.clientData.sex,
           maritalStatus: marital(),
           dob: bio.clientData.dob,
-          spousename: bio.spouses.name,
-          occupation: bio.spouses.occupation,
+          spouse: bio.spouses,
           medicalConditions: []
         };
 
@@ -253,6 +380,7 @@ angular.module('app')
 
         $scope.mc = ClientService.createMedicalConditions(mcarray[i].text).then(
           function(resolved){
+            $scope.client.medicalConditions.push(resolved);
             console.log(resolved);
           },
           function(err){
@@ -267,6 +395,12 @@ angular.module('app')
       .then(
         function(result){
           console.log(result);
+          ClientService.getMedicalConditions().then(
+            function(results){
+              console.log(results);
+              $scope.client.medicalConditions = results;
+            }
+          )
         },
         function(err){
           console.log(err);
@@ -276,15 +410,9 @@ angular.module('app')
 
 
     var tata = ClientService.getMedicalConditions().then(
-        function(tags){
-          var tagsarray = []
-          for (var i = 0; i < tags.length; i++) {
-            tagsarray[i] = {
-              "text": tags[i].name,
-              "id": tags[i].id
-            }
-          }
-          $scope.client.medicalConditions = tagsarray;
+        function(conditions){
+
+          $scope.client.medicalConditions = conditions;
           console.log($scope.client.medicalConditions);
         }, function(err){
           console.log(err);
@@ -302,45 +430,21 @@ angular.module('app')
   }
 ]);
 
-angular.module('app').controller('ModalInstanceCtrl', function ($scope, $rootScope, $uibModalInstance, items, ClientService) {
+angular.module('app').controller('updateDobCtrl', function ($scope, $rootScope, $uibModalInstance, client, ClientService) {
 
-  $scope.items = items;
-  $scope.opened = false;
   $scope.client = {
     birthday: null,
     birthmonth: null,
     birthyear: null,
+    instance: client
   }
 
-  /**
-   * [datepicker opener]
-   * @return {[void]} [description]
-   */
-  $scope.open = function() {
-     $scope.opened = true;
-     console.log($scope.opened);
-   };
-
-
-  $scope.selected = {
-    item: $scope.items[0]
-  };
 
   $scope.ok = function () {
     var dob = $scope.client.birthyear+"-"+$scope.client.birthmonth+"-"+$scope.client.birthday;
+    $scope.client.instance.dob = dob;
     console.log(dob);
-    var update = ClientService.updateDob(
-      $rootScope.$id,
-      dob
-    ).then(
-      function(results){
-        console.log(results);
-      },
-      function(err){
-        console.log(err);
-      }
-    )
-    $uibModalInstance.close($scope.selected.item);
+    $uibModalInstance.close($scope.client.instance);
   };
 
   $scope.cancel = function () {
@@ -348,49 +452,76 @@ angular.module('app').controller('ModalInstanceCtrl', function ($scope, $rootSco
   };
 });
 
-angular.module('app').controller('UpdateNameCtrl', function ($scope, $rootScope, $uibModalInstance, items, ClientService) {
+angular.module('app').controller('UpdateNameCtrl', function ($scope, $rootScope, $uibModalInstance, client, ClientService) {
 
-  $scope.items = items;
-  $scope.opened = false;
+
+  $scope.client = client;
+
+  $scope.ok = function () {
+    var fullname = $scope.client.firstname + " " +$scope.client.lastname;
+    $scope.client.fullname = fullname;
+    $uibModalInstance.close($scope.client);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+});
+
+angular.module('app').controller('UpdateSpouseNameCtrl', function ($scope, $rootScope, $uibModalInstance, $state, spouse, ClientService) {
+
   $scope.client = {
     firstname: null,
     lastname: null,
-    dataId: null
+    spouse: spouse
   }
-  var t = ClientService.getClientBio().then(
-    function (results){
-      $scope.client.dataId = results.clientData.id;
-    }
-  )
-  /**
-   * [datepicker opener]
-   * @return {[void]} [description]
-   */
-  $scope.open = function() {
-     $scope.opened = true;
-     console.log($scope.opened);
-   };
-
-
-  $scope.selected = {
-    item: $scope.items[0]
-  };
 
   $scope.ok = function () {
-    console.log($scope.client);
-    var update = ClientService.updateName(
-      $scope.client.dataId,
-      $scope.client.firstname,
-      $scope.client.lastname
-    ).then(
-      function(results){
-        console.log(results);
-      },
-      function(err){
-        console.log(err);
-      }
-    )
-    $uibModalInstance.close($scope.selected.item);
+    var name = $scope.client.firstname+" "+$scope.client.lastname;
+
+    $scope.client.spouse.name = name;
+
+    $uibModalInstance.close($scope.client.spouse);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+});
+
+angular.module('app').controller('SpouseDoBUpCtrl', function ($scope, $rootScope, $uibModalInstance, spouse, ClientService) {
+
+  $scope.client = {
+    birthday: null,
+    birthmonth: null,
+    birthyear: null,
+    spouse: spouse
+  }
+
+
+  $scope.ok = function () {
+    var dob = $scope.client.birthyear+"-"+$scope.client.birthmonth+"-"+$scope.client.birthday;
+    $scope.client.spouse.dob = dob;
+    console.log($scope.client.spouse);
+
+    $uibModalInstance.close($scope.client.spouse);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+});
+
+angular.module('app').controller('SpouseOccUpCtrl', function ($scope, $rootScope, $uibModalInstance, spouse, ClientService) {
+
+  $scope.client = {
+    occupation: null,
+    spouse: spouse
+  }
+
+  $scope.ok = function () {
+    $scope.client.spouse.occupation = $scope.client.occupation;
+    $uibModalInstance.close($scope.client.spouse);
   };
 
   $scope.cancel = function () {
