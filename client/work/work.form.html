@@ -1,0 +1,116 @@
+<div class="card" >
+<div class="header">
+    <h3 class="title"><strong>Employment Data</strong></h3>
+</div>
+<div class="content">
+    <ul class="list-unstyled team-members">
+          <li ng-hide="isEmployed">
+              <div class="row" >
+                  <div class="col-lg-12 col-md-9 col-xs-8">
+                      <div class="alert alert-info">
+                          <button type="button" aria-hidden="true" class="close">×</button>
+                          <span><b> Info - </b> You have no informaion about your employment.</span>
+                      </div>
+
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-xs-8">
+                      <span class="font-medium"><strong>No employment details available</strong></span>
+                      <p>
+                          Add your employment details here
+                      </p>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-xs-4">
+                      <button ng-click="createEmployerModal()" class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
+
+                  </div>
+              </div>
+          </li>
+        <li ng-show="isEmployed">
+            <div class="row" >
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Works at:</strong></span>
+                    <p ng-bind="client.employer.name">
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateEmployerName()" class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
+
+                </div>
+            </div>
+        </li>
+        <li ng-show="isEmployed">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Employment number:</strong></span>
+                    <p>
+                        {{client.employer.employmentNumber}}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateEmployementNumber()" class="btn btn-blue btn-sm"><i class="ti ti-pencil"></i>Edit</button>
+
+                </div>
+            </div>
+        </li>
+        <li ng-show="isEmployed">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Date first joined the organisation</strong></span>
+                    <p>
+                        {{client.employer.dateFirstJoined | date}}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateEmployerJoinDate()" class="btn btn-blue"><i class="ti ti-pencil"></i><span>Edit</span></button>
+
+                </div>
+            </div>
+        </li>
+        <li ng-show="isEmployed">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Date confirmed at the organisation</strong></span>
+                    <p>
+                        {{client.employer.dateConfirmed | date}}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateEmployerConfirmDate()" class="btn btn-blue"><i class="ti ti-pencil"></i><span>Edit</span></button>
+
+                </div>
+            </div>
+        </li>
+        <li ng-show="isEmployed">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>My current monthly salary at the organisation</strong></span>
+                    <p>
+                        K {{client.employer.currentMonthlySalary}}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="updateMonthlySalary()" class="btn btn-blue"><i class="ti ti-pencil"></i><span>Edit</span></button>
+
+                </div>
+            </div>
+        </li>
+        <li ng-show="isEmployed">
+
+        </li>
+        <li ng-show="isEmployed">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-xs-8">
+                    <span class="font-medium"><strong>Remove employment details</strong></span>
+                    <p>
+                        This action will delete your employment details.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-4">
+                    <button ng-click="deleteEmployerModal()" class="btn btn-red"><i class="ti ti-trash"></i><span>Delete</span></button>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>

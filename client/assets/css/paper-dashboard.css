@@ -187,7 +187,7 @@ body .wrapper {
 }
 
 a {
-  color: #68B3C8;
+  color: #1A237E;
 }
 a:hover, a:focus {
   color: #3091B2;
@@ -1114,6 +1114,12 @@ hr {
   filter: alpha(opacity=100);
 }
 
+.form-control::placeholder {
+  color: #66615b;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
 .form-control[disabled]:-moz-placeholder {
   color: #DDDDDD;
   opacity: 1;
@@ -1210,7 +1216,6 @@ textarea.form-control {
 
 .alert-danger {
   background-color: #FF8F5E;
-  color: #B33C12;
 }
 
 .table thead tr > th,
@@ -1798,7 +1803,7 @@ select {
     font-size: 60px;
     padding: 18px;
     width: 110px;
-    border: 2px solid #ccc5b9;
+    /*border: 2px solid #ccc5b9;*/
     border-radius: 50%;
     height: 110px; }
 .col-lg-4 .card .icon i {

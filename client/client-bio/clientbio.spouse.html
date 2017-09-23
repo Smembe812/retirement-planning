@@ -4,8 +4,22 @@
 </div>
 <div class="content">
     <ul class="list-unstyled team-members">
-        <li>
-            <div class="row">
+          <li ng-hide="spousepresence">
+              <div class="row" >
+                  <div class="col-lg-9 col-md-9 col-xs-8">
+                      <span class="font-medium"><strong>No spouse details available</strong></span>
+                      <p>
+                          Add your marital status and spouse details here
+                      </p>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-xs-4">
+                      <button ng-click="openCreateSpouseModal()" class="btn btn-blue"><i class="ti ti-pencil"></i>Edit</button>
+
+                  </div>
+              </div>
+          </li>
+        <li ng-show="spousepresence">
+            <div class="row" >
                 <div class="col-lg-9 col-md-9 col-xs-8">
                     <span class="font-medium"><strong>Name</strong></span>
                     <p ng-bind="client.spouse.name">
@@ -17,7 +31,7 @@
                 </div>
             </div>
         </li>
-        <li>
+        <li ng-show="spousepresence">
             <div class="row">
                 <div class="col-lg-9 col-md-9 col-xs-8">
                     <span class="font-medium"><strong>Date of Birth</strong></span>
@@ -31,7 +45,7 @@
                 </div>
             </div>
         </li>
-        <li>
+        <li ng-show="spousepresence">
             <div class="row">
                 <div class="col-lg-9 col-md-9 col-xs-8">
                     <span class="font-medium"><strong>Occupation</strong></span>

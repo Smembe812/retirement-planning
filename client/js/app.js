@@ -192,6 +192,20 @@ angular.module('app', [
         ],
         controller: 'ClientBioController',
         authenticate: true
+      })
+      .state('planner-work', {
+        url: '/planner/work',
+        templateUrl: '../work/work.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
+          '../assets/css/ng-tags-input.min.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'ClientWorkController',
+        authenticate: true
       });
     $urlRouterProvider.otherwise('website/home');
   }])

@@ -1,4 +1,4 @@
-   /**
+      /**
  * @ngdoc client services
  * @description handles clients CRUD operations
  */
@@ -7,13 +7,14 @@
 
 angular.module('app')
  .factory('ClientService', [
+   'Employer',
    'Client',
    'ClientData',
    'Spouse',
    'MedicalCondition',
    '$rootScope',
    '$q',
-    function(Client, ClientData, Spouse, MedicalCondition, $rootScope, $q){
+    function(Employer, Client, ClientData, Spouse, MedicalCondition, $rootScope, $q){
       return {
          /**
           * '[gets client's bio]'
@@ -130,7 +131,7 @@ angular.module('app')
                  name: name,
                  dob: dob,
                  occupation: occupation,
-                 clientId: $rootScope.currentUser.id
+                 clientId: $rootScope.$id
                }
              ).$promise
           },
@@ -179,8 +180,105 @@ angular.module('app')
                 {id: id},
                 {dob: dob}
              ).$promise
-          }
-       }
+          },
+
+          /**
+           * [get client employment details]
+           * @return {[$promise]} [handle success and errors]
+           */
+          getEmploymentDetails: function() {
+             console.log("rootScope is: " + $rootScope.$id);
+            return Client.employers(
+               {id: 1}
+              ).$promise
+          },
+
+          /**
+           * [create client employment details]
+           * @param  {[string]} name               ``[name of employer]
+           * @param  {[string]} employmentNumber   ``[employer number]
+           * @param  {[integer]} dateFirstJoined      [date joined company]
+           * @param  {[integer]} dateConfirmed        [description]
+           * @param  {[type]} currentMonthlySalary [description]
+           * @return {[type]}                      [description]
+           */
+          createEmploymentDetails: function(
+             name,
+             employmentNumber,
+             dateFirstJoined,
+             dateConfirmed,
+             currentMonthlySalary
+          ){
+            return Employer.create(
+              {
+                name: name,
+                employmentNumber: employmentNumber,
+                dateFirstJoined: dateFirstJoined,
+                dateConfirmed: dateConfirmed,
+                currentMonthlySalary: currentMonthlySalary,
+                clientId: $rootScope.$id
+              }
+            ).$promise
+          },
+
+          /**
+           * [update client monthly salary]
+           * @param  {[integer]} id     [id of employer]
+           * @param  {[integer]} salary [the actual monnthly salatry]
+           * @return {[promise]}        [hande success and rrrors]
+           */
+          updateMonthlySalary: function(id, salary){
+            return Employer.prototype$patchAttributes(
+                 {id: id},
+                 {currentMonthlySalary: salary}
+              ).$promise
+          },
+
+         /**
+          * [delete client employmet details]
+          * @param  {[integer]} id [id of employer]
+          * @return {[promise]}    [handle success and errors]
+          */
+          deleteEmploymentDetails: function(id){
+             return Employer.deleteById(
+              {id: id}
+           ).$promise
+        },
+
+        /**
+        * [update client monthly salary]
+        * @param  {[integer]} id     [id of employer]
+        * @param  {[integer]} salary [the actual monnthly salatry]
+        * @return {[promise]}        [hande success and rrrors]
+        */
+        updateEmployerName: function(id, name){
+          return Employer.prototype$patchAttributes(
+               {id: id},
+               {name: name}
+            ).$promise
+        },
+
+        updateEmployementNumber: function(id, number){
+          return Employer.prototype$patchAttributes(
+               {id: id},
+               {employmentNumber: number}
+            ).$promise
+        },
+
+        updateEmployerJoinDate: function(id, date){
+          return Employer.prototype$patchAttributes(
+               {id: id},
+               {dateFirstJoined: date}
+            ).$promise
+        },
+
+        updateEmployerConfirmDate: function(id, date){
+          return Employer.prototype$patchAttributes(
+               {id: id},
+               {dateConfirmed: date}
+            ).$promise
+        }
       }
-   ]
+   }
+]
 );

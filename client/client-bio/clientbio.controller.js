@@ -16,6 +16,7 @@ angular.module('app')
 
 
     $scope.isCollapsed = true;
+    $scope.spousepresence = true;
     $scope.tags;
     var clone = {}
     $scope.client = {}
@@ -23,7 +24,8 @@ angular.module('app')
     $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.openModal = function (size) {
-      angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
+      angular.element(document).find('.modal-dialog')
+        .addClass('animated fadeInDown');
 
        var modalInstance = $uibModal.open({
          animation: true,
@@ -117,6 +119,44 @@ angular.module('app')
            $log.info('Modal dismissed at: ' + new Date());
          });
        };
+
+       $scope.openCreateSpouseModal = function (size) {
+         angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
+
+          var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'create.spouse.html',
+            controller: 'CreateSpouseCtrl',
+            size: size,
+            resolve: {
+              spouse: function () {
+                return $scope.client.spouse;
+              }
+            }
+          });
+
+          modalInstance.result.then(function (client) {
+            ClientService.createSpouse(client.spouse.name, client.spouse.dob, client.spouse.occupation).then(
+              function(results){
+                $scope.client.spouse = client.spouse;
+                $scope.spousepresence = true;
+              }, function(err) {
+                console.log(err);
+              }
+            );
+
+            ClientService.updateMaritalStatus($scope.client.dataid, client.maritalStatus).then(
+              function(results){
+                console.log(results);
+              },
+              function(err){
+                console.log(err);
+              }
+            );
+          }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+          });
+        };
 
        $scope.updateSpouseDoBModal = function (size) {
          angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
@@ -236,12 +276,14 @@ angular.module('app')
 
         function marital(){
           if(bio.clientData.maritalStatus != null){
+            $scope.spousepresence = true;
             return bio.clientData.maritalStatus;
           }else {
-            console.log(bio.clientData.maritalStatus);
+            $scope.spousepresence = false;
             return "Choose your marital status";
           }
         }
+
         var fullname = bio.clientData.firstName + " " +bio.clientData.lastName;
         $scope.client = {
           firstname: bio.clientData.firstName,
@@ -251,7 +293,8 @@ angular.module('app')
           maritalStatus: marital(),
           dob: bio.clientData.dob,
           spouse: bio.spouses,
-          medicalConditions: []
+          medicalConditions: [],
+          dataid: bio.clientData.id
         };
 
         clone = {
@@ -413,7 +456,6 @@ angular.module('app')
         function(conditions){
 
           $scope.client.medicalConditions = conditions;
-          console.log($scope.client.medicalConditions);
         }, function(err){
           console.log(err);
         }
@@ -522,6 +564,35 @@ angular.module('app').controller('SpouseOccUpCtrl', function ($scope, $rootScope
   $scope.ok = function () {
     $scope.client.spouse.occupation = $scope.client.occupation;
     $uibModalInstance.close($scope.client.spouse);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+});
+
+angular.module('app').controller('CreateSpouseCtrl', function ($scope, $rootScope, $uibModalInstance, spouse, ClientService) {
+  $scope.isCollapsed = false;
+  $scope.client = {
+    occupation: null,
+    maritalStatus: "Choose your marital status",
+    birthmonth: "Month",
+    spouse: spouse
+  }
+  $scope.wecollapse = function(){
+    if ($scope.client.maritalStatus === "Married"){
+      $scope.isCollapsed = true;
+    }else {
+      $scope.isCollapsed = false;
+    }
+  }
+
+
+  $scope.ok = function () {
+    $scope.client.spouse.occupation = $scope.client.occupation;
+    $scope.client.spouse.name = $scope.client.firstname+" "+$scope.client.lastname;
+    $scope.client.spouse.dob = $scope.client.birthyear+"-"+$scope.client.birthmonth+"-"+$scope.client.birthday;
+    $uibModalInstance.close($scope.client);
   };
 
   $scope.cancel = function () {

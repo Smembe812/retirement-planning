@@ -9,8 +9,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "required": true,
-      "default": "dob"
+      "required": true
     },
     "dob": {
       "type": "date",

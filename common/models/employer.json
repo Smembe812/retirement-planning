@@ -13,8 +13,7 @@
     },
     "employmentNumber": {
       "type": "string",
-      "required": true,
-      "default": "dateFirstJoined"
+      "required": true
     },
     "dateFirstJoined": {
       "type": "date"
@@ -27,7 +26,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "clientId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

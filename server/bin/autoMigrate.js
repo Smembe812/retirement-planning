@@ -28,12 +28,18 @@ dataSource.automigrate('medicalCondition', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
-/*
-dataSource.automigrate('property', function(err){
-if (err) throw err;
-dataSource.disconnect();
+
+dataSource.automigrate('employer', function(err){
+  if (err) throw err;
+  dataSource.disconnect();
 });
 
+dataSource.automigrate('emailList', function(err){
+  if (err) throw err;
+  dataSource.disconnect();
+});
+
+/*
 dataSource.automigrate('post', function(err){
 if (err) throw err;
 dataSource.disconnect();
