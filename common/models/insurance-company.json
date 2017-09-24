@@ -1,6 +1,6 @@
 {
-  "name": "dependant",
-  "plural": "dependants",
+  "name": "InsuranceCompany",
+  "plural": "insuranceCompanies",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,9 +10,6 @@
     "name": {
       "type": "string",
       "required": true
-    },
-    "dob": {
-      "type": "date"
     }
   },
   "validations": [],

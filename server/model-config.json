@@ -68,5 +68,13 @@
   "employer": {
     "dataSource": "postgre",
     "public": true
+  },
+  "PensionFund": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "InsuranceCompany": {
+    "dataSource": "postgre",
+    "public": true
   }
 }

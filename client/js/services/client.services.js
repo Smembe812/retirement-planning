@@ -7,6 +7,7 @@
 
 angular.module('app')
  .factory('ClientService', [
+   'Dependant',
    'Employer',
    'Client',
    'ClientData',
@@ -14,7 +15,15 @@ angular.module('app')
    'MedicalCondition',
    '$rootScope',
    '$q',
-    function(Employer, Client, ClientData, Spouse, MedicalCondition, $rootScope, $q){
+    function(
+      Dependant,
+         Employer,
+      Client,
+      ClientData,
+      Spouse,
+      MedicalCondition,
+      $rootScope,
+      $q){
       return {
          /**
           * '[gets client's bio]'
@@ -258,6 +267,12 @@ angular.module('app')
             ).$promise
         },
 
+        /**
+         * [update client employment number]
+         * @param  {[integer]} id     [id of employer]
+         * @param  {[string]} number [employyee number]
+         * @return {[$promise]}        [handle success and failiure]
+         */
         updateEmployementNumber: function(id, number){
           return Employer.prototype$patchAttributes(
                {id: id},
@@ -265,6 +280,12 @@ angular.module('app')
             ).$promise
         },
 
+        /**
+         * [update employyee joinn date]
+         * @param  {[integer]} id     [id of employer]
+         * @param  {[date]}   salary [the join date of organisation]
+         * @return {[promise]}      [hande success and errors]
+         */
         updateEmployerJoinDate: function(id, date){
           return Employer.prototype$patchAttributes(
                {id: id},
@@ -272,12 +293,44 @@ angular.module('app')
             ).$promise
         },
 
+        /**
+         * [update employyee joinn date]
+         * @param  {[integer]} id     [id of employer]
+         * @param  {[date]}   salary [the confirm date of organisation]
+         * @return {[promise]}      [hande success and errors]
+         */
         updateEmployerConfirmDate: function(id, date){
           return Employer.prototype$patchAttributes(
                {id: id},
                {dateConfirmed: date}
             ).$promise
-        }
+        },
+
+        createDependant: function(name){
+           return Dependant.create(
+             {
+                name: name,
+                clientId: $rootScope.$id
+             }
+          ).$promise
+       },
+
+       getDependants: function(){
+          return Client.dependants({id: $rootScope.$id}).$promise
+       },
+
+       updateDependant: function(id, name){
+          return Dependant.prototype$patchAttributes(
+             {
+                id: id,
+                name: name
+             }
+          ).$promise
+       },
+
+       deleteDependant: function(id){
+         return Dependant.deleteById({id:id}).$promise
+       }
       }
    }
 ]

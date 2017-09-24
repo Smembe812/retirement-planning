@@ -1,6 +1,5 @@
 {
-  "name": "dependant",
-  "plural": "dependants",
+  "name": "PensionFund",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,8 +10,17 @@
       "type": "string",
       "required": true
     },
-    "dob": {
-      "type": "date"
+    "balance": {
+      "type": "number"
+    },
+    "earlyRetirementAge": {
+      "type": "number"
+    },
+    "lateRetirementAge": {
+      "type": "string"
+    },
+    "localCurrency": {
+      "type": "string"
     }
   },
   "validations": [],

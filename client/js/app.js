@@ -1,4 +1,4 @@
-  'use strict';
+    'use strict';
 angular.module('app', [
     'ui.router',
     'angularCSS',
@@ -191,6 +191,20 @@ angular.module('app', [
           '../assets/css/themify-icons.css'
         ],
         controller: 'ClientBioController',
+        authenticate: true
+      })
+      .state('planner-dependants', {
+        url: '/planner/dependants',
+        templateUrl: '../dependants/dependants.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
+          '../assets/css/ng-tags-input.min.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'DependantsController',
         authenticate: true
       })
       .state('planner-work', {

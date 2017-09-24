@@ -33,6 +33,16 @@
       "type": "hasOne",
       "model": "employer",
       "foreignKey": "clientId"
+    },
+    "pensionFunds": {
+      "type": "hasOne",
+      "model": "PensionFund",
+      "foreignKey": "clientId"
+    },
+    "insuranceCompanies": {
+      "type": "hasOne",
+      "model": "InsuranceCompany",
+      "foreignKey": "clientId"
     }
   },
   "acls": [

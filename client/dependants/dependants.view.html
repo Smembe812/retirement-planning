@@ -226,21 +226,19 @@
       </div>
    </div>
 </script>
-<script type="text/ng-template" id="update.empname.html">
+<script type="text/ng-template" id="edit.dependant.html">
    <div>
-
       <div class="modal-header">
-         <h3 class="modal-title">Update your employment number</h3>
-      </div>
+         <h3 class="modal-title">Edit {{client.dependant.name}}'s details
       <div class="modal-body">
          <div class="row">
             <div class="col-md-12">
                  <div class="form-group">
-                    <label class="font-dark md-font">Employer name</label>
+                    <label class="font-dark md-font">Dependant name</label>
                      <div class="row">
                        <div class="col-md-12">
                         <div class="">
-                           <input type="text" class="form-control" placeholder="Emploment number" ng-model="client.empName" required>
+                           <input type="text" class="form-control" placeholder="Dependant name" ng-model="client.dependant.name" required>
                         </div>
                        </div>
                      </div>
@@ -254,232 +252,35 @@
       </div>
    </div>
 </script>
-<script type="text/ng-template" id="update.spouse.html">
+<script type="text/ng-template" id="create.dependant.html">
    <div>
-
       <div class="modal-header">
-         <h3 class="modal-title">Update your spouse's name</h3>
+         <h3 class="modal-title">Add your dependants</h3>
       </div>
       <div class="modal-body">
          <div class="row">
             <div class="col-md-12">
                  <div class="form-group">
-                    <label class="font-dark md-font">Name</label>
-                     <div class="row">
-                       <div class="col-md-6">
-                        <div class="">
-                           <input type="text" class="form-control" placeholder="First" ng-model="client.firstname" required>
-                        </div>
-                       </div>
-                       <div class="col-md-6">
-                        <div class="">
-                           <input type="text" class="form-control" placeholder="Last" ng-model="client.lastname" required>
-                        </div>
-                       </div>
-                     </div>
-                 </div>
-            </div>
-         </div>
-      </div>
-      <div class="modal-footer">
-         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
-         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
-      </div>
-   </div>
-</script>
-<script type="text/ng-template" id="update.spouseDoB.html">
-   <div>
-
-      <div class="modal-header">
-         <h3 class="modal-title">Update your date of birth</h3>
-      </div>
-      <div class="modal-body">
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                     <label>Date of Birth</label>
-                     <div class="row">
-                                    <div class="col-md-6">
-                                      <div class="">
-                                        <p class="">
-                                          <select class="form-control ng-pristine ng-valid ng-touched" ng-model="client.birthmonth">
-                                              <option disabled="" selected="" value="Month">Month</option>
-                                              <option value="01">January</option>
-                                              <option value="02">February</option>
-                                              <option value="03">March</option>
-                                              <option value="04">April</option>
-                                              <option value="05">May</option>
-                                              <option value="06">June</option>
-                                              <option value="07">July</option>
-                                              <option value="08">August</option>
-                                              <option value="09">September</option>
-                                              <option value="10">October</option>
-                                              <option value="11">November</option>
-                                              <option value="12">December</option>
-                                          </select>
-
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                      <div class="">
-                                        <p class="">
-                                          <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Day" ng-model="client.birthday" required="">
-
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                      <div class="">
-                                        <p class="">
-                                          <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Year" ng-model="client.birthyear" required="">
-
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                 </div>
-            </div>
-         </div>
-      </div>
-      <div class="modal-footer">
-         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
-         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
-      </div>
-   </div>
-</script>
-<script type="text/ng-template" id="create.employer.html">
-   <div>
-      <div class="modal-header">
-         <h3 class="modal-title">Add your employment details</h3>
-      </div>
-
-      <div class="modal-body">
-
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                    <label class="font-dark md-font">Employment</label>
-                     <div class="row">
-                       <div class="col-md-6">
-                        <div class="">
-                           <input type="text" class="form-control" placeholder="Organization name" ng-model="client.name" required>
-                        </div>
-                       </div>
-                       <div class="col-md-6">
-                        <div class="">
-                           <input type="text" class="form-control" placeholder="Employee number" ng-model="client.employeenumber" required>
-                        </div>
-                       </div>
-                     </div>
-                 </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                     <label>Date of first joined</label>
-                     <div class="row">
-                        <div class="col-md-6">
-                          <div class="">
-                            <p class="">
-                              <select class="form-control ng-pristine ng-valid ng-touched" ng-model="client.jbirthmonth">
-                                  <option disabled="" selected="" value="Month">Month</option>
-                                  <option value="01">January</option>
-                                  <option value="02">February</option>
-                                  <option value="03">March</option>
-                                  <option value="04">April</option>
-                                  <option value="05">May</option>
-                                  <option value="06">June</option>
-                                  <option value="07">July</option>
-                                  <option value="08">August</option>
-                                  <option value="09">September</option>
-                                  <option value="10">October</option>
-                                  <option value="11">November</option>
-                                  <option value="12">December</option>
-                              </select>
-
-                            </p>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="">
-                            <p class="">
-                              <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Day" ng-model="client.jbirthday" required="">
-
-                            </p>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="">
-                            <p class="">
-                              <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Year" ng-model="client.jbirthyear" required="">
-
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                 </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                     <label>Date of first joined</label>
-                     <div class="row">
-                        <div class="col-md-6">
-                          <div class="">
-                            <p class="">
-                              <select class="form-control ng-pristine ng-valid ng-touched" ng-model="client.cbirthmonth">
-                                  <option disabled="" selected="" value="Month">Month</option>
-                                  <option value="01">January</option>
-                                  <option value="02">February</option>
-                                  <option value="03">March</option>
-                                  <option value="04">April</option>
-                                  <option value="05">May</option>
-                                  <option value="06">June</option>
-                                  <option value="07">July</option>
-                                  <option value="08">August</option>
-                                  <option value="09">September</option>
-                                  <option value="10">October</option>
-                                  <option value="11">November</option>
-                                  <option value="12">December</option>
-                              </select>
-
-                            </p>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="">
-                            <p class="">
-                              <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Day" ng-model="client.cbirthday" required="">
-
-                            </p>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="">
-                            <p class="">
-                              <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Year" ng-model="client.cbirthyear" required="">
-
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                 </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                    <label class="font-dark md-font">Current monthly salary</label>
+                    <label class="font-dark md-font">Dependants </label>
                      <div class="row">
                        <div class="col-md-12">
                         <div class="">
-                           <input type="text" class="form-control" placeholder="Monthly salary" ng-model="client.salary" required>
+                           <input type="text" class="form-control" placeholder="Dependant name" ng-model="client.name" required>
                         </div>
                        </div>
                      </div>
+                 </div>
+                 <div class="form-group">
+
+                    <div class="row">
+                       <div class="col-md-4 col-md-offset-5">
+
+                          <button class="btn btn-blue round" type="button">
+                             <i class="fa fa-plus"></i>
+                          </button>
+                       </div>
+
+                    </div>
                  </div>
             </div>
          </div>
@@ -610,7 +411,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-                        <work-data></work-data>
+                        <dependants></dependants>
                     </div>
 
                 </div>
