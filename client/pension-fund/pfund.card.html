@@ -1,0 +1,100 @@
+<div class="card" >
+<div class="header">
+    <h3 class="title"><strong>Pension Fund Information</strong></h3>
+</div>
+<div class="content">
+    <ul class="list-unstyled team-members" ng-hide="hasPensionFund">
+        <li >
+              <div class="row" >
+                  <div class="col-lg-12 col-md-9 col-xs-8">
+                      <div class="alert alert-info">
+                          <button type="button" aria-hidden="true" class="close">×</button>
+                          <spann style="color: #444"><b> Info - </b> You have no informaion about your Pension Fund.</span>
+                      </div>
+
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-xs-8">
+                      <span class="font-medium"><strong>No Pension Fund details available</strong></span>
+                      <p>
+                          Add your Pension Fund details here.
+                      </p>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-xs-4">
+                      <button ng-click="createPensionFundModal()" class="btn btn-blue"><i class="ti ti-add"></i>Add</button>
+
+                  </div>
+              </div>
+          </li>
+
+    </ul>
+
+    <ul class="list-unstyled team-members" ng-show="hasPensionFund">
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Pension fund name</strong></span>
+                    <p>
+                        {{client.pensionFund.name}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editPfundNameModal()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Pension fund balance</strong></span>
+                    <p>
+                        {{client.pensionFund.localCurrency}} {{client.pensionFund.balance}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editPfundBalanceModal()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Early retirement age</strong></span>
+                    <p>
+                        {{client.pensionFund.earlyRetirementAge}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editPfundERAModal()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Late retirement age</strong></span>
+                    <p>
+                        {{client.pensionFund.lateRetirementAge}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editPfundLRAModal()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Local currency</strong></span>
+                    <p>
+                        {{client.pensionFund.localCurrency}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editPfundCurrencyModal()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+</div>

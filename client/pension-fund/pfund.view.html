@@ -1,0 +1,528 @@
+<script type="text/ng-template" id="delete.employer.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Warning</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="alert alert-danger">
+                   <button type="button" aria-hidden="true" class="close">×</button>
+                   <span><b> Danger - </b> Are you sure you want to delete your employment details?</span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">Delete</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="update.confirmdate.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the date you you got confirmed at {{client.employer.name}}</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                     <label>Date confirmed at {{client.employer.name}}</label>
+                     <div class="row">
+                     <div class="col-md-6">
+                       <div class="">
+                         <p class="">
+                           <select class="form-control ng-pristine ng-valid ng-touched" ng-model="client.birthmonth">
+                               <option disabled="" selected="" value="Month">Month</option>
+                               <option value="01">January</option>
+                               <option value="02">February</option>
+                               <option value="03">March</option>
+                               <option value="04">April</option>
+                               <option value="05">May</option>
+                               <option value="06">June</option>
+                               <option value="07">July</option>
+                               <option value="08">August</option>
+                               <option value="09">September</option>
+                               <option value="10">October</option>
+                               <option value="11">November</option>
+                               <option value="12">December</option>
+                           </select>
+
+                         </p>
+                       </div>
+                     </div>
+                     <div class="col-md-3">
+                       <div class="">
+                         <p class="">
+                           <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Day" ng-model="client.birthday" required="">
+
+                         </p>
+                       </div>
+                     </div>
+                     <div class="col-md-3">
+                       <div class="">
+                         <p class="">
+                           <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Year" ng-model="client.birthyear" required="">
+
+                         </p>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="update.joindate.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Update the date you first joined your organisation</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                     <label>Date you first joined {{client.employer.name}}</label>
+                     <div class="row">
+                      <div class="col-md-6">
+                        <div class="">
+                          <p class="">
+                            <select class="form-control ng-pristine ng-valid ng-touched" ng-model="client.birthmonth">
+                                <option disabled="" selected="" value="Month">Month</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="">
+                          <p class="">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Day" ng-model="client.birthday" required="">
+
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="">
+                          <p class="">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Year" ng-model="client.birthyear" required="">
+
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="edit.pfundname.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit Pension fund name</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Pension fund name</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Name" ng-model="pfund.name" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="edit.pfundbalance.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit Pension fund balance</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Pension fund balance</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Balance" ng-model="pfund.balance" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="edit.pfundera.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit your early retirement age</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Early retirement age</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Age" ng-model="pfund.earlyRetirementAge" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="edit.pfundlra.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit your late retirement age</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Late retirement age</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Age" ng-model="pfund.lateRetirementAge" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="edit.pfundcurrency.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit your late retirement age</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="form-group">
+                  <label class="font-dark md-font">Choose your local currency</label>
+                   <div class="row">
+                      <div class="col-md-12">
+                       <div class="">
+                        <p class="">
+                           <select class="form-control ng-pristine ng-valid ng-touched" ng-model="pfund.localCurrency">
+                              <option disabled="" selected="" value="Local currency">Local currency</option>
+                              <option value="BWP">Botswanan Pula</option>
+                              <option value="CNY">Chinese Yuan</option>
+                              <option value="EUR">Euro</option>
+                              <option value="GBP">British Pound Sterling</option>
+                              <option value="JPY">Japanese Yen</option>
+                              <option value="MWK">Malawian Kwacha</option>
+                              <option value="MZN">Mozambican Metical</option>
+                              <option value="USD">United States Dollar</option>
+                              <option value="ZAR">South African Rand</option>
+                           </select>
+
+                        </p>
+                       </div>
+                     </div>
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="create.pfund.html">
+   <div>
+      <div class="modal-header">
+         <h3 class="modal-title">Add your pension fund</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Pension Fund</label>
+                     <div class="row">
+                       <div class="col-md-6">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Pension fund name" ng-model="pfund.name" required>
+                        </div>
+                       </div>
+                       <div class="col-md-6">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Pension fund balance" ng-model="pfund.balance" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="font-dark md-font">Retirement Age</label>
+                     <div class="row">
+                       <div class="col-md-6">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Early retirement age" ng-model="pfund.earlyAge" required>
+                        </div>
+                       </div>
+                       <div class="col-md-6">
+                        <div class="">
+                           <input type="text" class="form-control" placeholder="Late retirement age" ng-model="pfund.lateAge" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="font-dark md-font">Choose your local currency</label>
+                     <div class="row">
+                        <div class="col-md-6">
+                         <div class="">
+                           <p class="">
+                             <select class="form-control ng-pristine ng-valid ng-touched" ng-model="pfund.localCurrency">
+                                 <option disabled="" selected="" value="Local currency">Local currency</option>
+                                 <option value="BWP">Botswanan Pula</option>
+                                 <option value="CNY">Chinese Yuan</option>
+                                 <option value="EUR">Euro</option>
+                                 <option value="GBP">British Pound Sterling</option>
+                                 <option value="JPY">Japanese Yen</option>
+                                 <option value="MWK">Malawian Kwacha</option>
+                                 <option value="MZN">Mozambican Metical</option>
+                                 <option value="USD">United States Dollar</option>
+                                 <option value="ZAR">South African Rand</option>
+                             </select>
+
+                           </p>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">Create</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#/home" class="simple-text">
+                    RPC
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="#/home">
+                        <i class="ti-panel"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <!--<li>
+                    <a href="user.html">
+                        <i class="ti-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="table.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Table List</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="ti-text"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="ti-map"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>-->
+                <li>
+                    <a href="notifications.html">
+                        <i class="ti-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+				<!--<li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="ti-export"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>-->
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand font-white" href="#/">Home</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="ti-panel"></i>
+								<p>Stats</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bell"></i>
+                                    <p class="notification">5</p>
+									<p>Notifications</p>
+									<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>-->
+						<li>
+                            <a href="#/signout">
+								<i class="ti-settings font-white"></i>
+								<p class="font-white">Sign Out</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                        <pension-fund></pension-fund>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                Website
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    Retirement Planning Center
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>

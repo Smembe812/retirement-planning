@@ -207,6 +207,20 @@ angular.module('app', [
         controller: 'DependantsController',
         authenticate: true
       })
+      .state('planner-pension-fund', {
+        url: '/planner/pension-fund',
+        templateUrl: '../pension-fund/pfund.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
+          '../assets/css/ng-tags-input.min.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'PensionFundController',
+        authenticate: true
+      })
       .state('planner-work', {
         url: '/planner/work',
         templateUrl: '../work/work.view.html',

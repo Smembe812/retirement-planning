@@ -7,6 +7,7 @@
 
 angular.module('app')
  .factory('ClientService', [
+   'PensionFund',
    'Dependant',
    'Employer',
    'Client',
@@ -16,8 +17,9 @@ angular.module('app')
    '$rootScope',
    '$q',
     function(
+      PensionFund,
       Dependant,
-         Employer,
+      Employer,
       Client,
       ClientData,
       Spouse,
@@ -330,7 +332,75 @@ angular.module('app')
 
        deleteDependant: function(id){
          return Dependant.deleteById({id:id}).$promise
-       }
+       },
+
+       createPensionFund: function(
+         name,
+         balance,
+         earlyRetirementAge,
+         lateRetirementAge,
+         localCurrency
+       ){
+         return PensionFund.create(
+           {
+             name: name,
+             balance: balance,
+             earlyRetirementAge: earlyRetirementAge,
+             lateRetirementAge: lateRetirementAge,
+             localCurrency: localCurrency,
+             clientId: $rootScope.$id
+           }
+        ).$promise
+      },
+
+      getPensionFund: function(){
+         return Client.pensionFunds({id: $rootScope.$id}).$promise
+      },
+
+      editPensionFundName: function(id, name){
+         return PensionFund.prototype$patchAttributes(
+            {
+               id: id,
+               name: name
+            }
+         ).$promise
+      },
+
+      editPensionFundBalance: function(id, balance){
+         return PensionFund.prototype$patchAttributes(
+            {
+               id: id,
+               balance: balance
+            }
+         ).$promise
+      },
+
+      editEarlyRetirementAge: function(id, earlyRetirementAge){
+         return PensionFund.prototype$patchAttributes(
+            {
+               id: id,
+               earlyRetirementAge: earlyRetirementAge
+            }
+         ).$promise
+      },
+
+      editLateRetirementAge: function(id, lateRetirementAge){
+         return PensionFund.prototype$patchAttributes(
+            {
+               id: id,
+               lateRetirementAge: lateRetirementAge
+            }
+         ).$promise
+      },
+
+      editLocalCurrency: function(id, localCurrency){
+         return PensionFund.prototype$patchAttributes(
+            {
+               id: id,
+               localCurrency: localCurrency
+            }
+         ).$promise
+      }
       }
    }
 ]

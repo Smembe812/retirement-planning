@@ -4,7 +4,7 @@ var dataSource = app.dataSources.postgre;
 
 var appModels = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
 
-dataSource.automigrate('client', function(err){
+/*dataSource.automigrate('client', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
@@ -38,23 +38,23 @@ dataSource.automigrate('emailList', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
+*/
 
-/*
-dataSource.automigrate('post', function(err){
+dataSource.automigrate('PensionFund', function(err){
 if (err) throw err;
 dataSource.disconnect();
 });
 
-dataSource.automigrate('Image', function(err){
+dataSource.automigrate('InsuranceCompany', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
-
+/*
 dataSource.automigrate('subscriber', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
-*/
+
 dataSource.isActual(appModels, function(err, actual) {
   if (!actual) {
     dataSource.autoupdate(appModels, function(err) {
@@ -62,3 +62,4 @@ dataSource.isActual(appModels, function(err, actual) {
     });
   }
 });
+*/
