@@ -38,7 +38,7 @@ dataSource.automigrate('emailList', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
-*/
+
 
 dataSource.automigrate('PensionFund', function(err){
 if (err) throw err;
@@ -46,6 +46,15 @@ dataSource.disconnect();
 });
 
 dataSource.automigrate('InsuranceCompany', function(err){
+  if (err) throw err;
+  dataSource.disconnect();
+});*/
+dataSource.automigrate('CashOutFlow', function(err){
+if (err) throw err;
+dataSource.disconnect();
+});
+
+dataSource.automigrate('CashInFlow', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });

@@ -43,6 +43,16 @@
       "type": "hasOne",
       "model": "InsuranceCompany",
       "foreignKey": "clientId"
+    },
+    "cashInFlows": {
+      "type": "hasOne",
+      "model": "CashInFlow",
+      "foreignKey": "clientId"
+    },
+    "cashOutFlows": {
+      "type": "hasOne",
+      "model": "CashOutFlow",
+      "foreignKey": "clientId"
     }
   },
   "acls": [

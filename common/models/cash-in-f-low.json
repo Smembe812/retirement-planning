@@ -1,0 +1,55 @@
+{
+  "name": "CashInFlow",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "pensionContributions": {
+      "type": "number"
+    },
+    "insurancepolicyPremiums": {
+      "type": "number",
+      "default": 0
+    },
+    "dividendsReInvested": {
+      "type": "number",
+      "default": 0
+    },
+    "investmentInterest": {
+      "type": "number",
+      "default": 0
+    },
+    "reInvestedBusinessesNetSurpluses": {
+      "type": "number",
+      "default": 0
+    },
+    "salaryMonthlyContributions": {
+      "type": "number",
+      "default": 0
+    },
+    "propertyRentals": {
+      "type": "number",
+      "default": 0
+    },
+    "partTimeWork": {
+      "type": "number",
+      "default": 0
+    },
+    "other": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

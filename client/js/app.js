@@ -221,6 +221,20 @@ angular.module('app', [
         controller: 'PensionFundController',
         authenticate: true
       })
+      .state('planner-cash-in-flow', {
+        url: '/planner/cash-in-flow',
+        templateUrl: '../cash-in-flow/cashin.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
+          '../assets/css/ng-tags-input.min.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'CashInFLowController',
+        authenticate: true
+      })
       .state('planner-work', {
         url: '/planner/work',
         templateUrl: '../work/work.view.html',

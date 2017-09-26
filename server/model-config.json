@@ -76,5 +76,13 @@
   "InsuranceCompany": {
     "dataSource": "postgre",
     "public": true
+  },
+  "CashInFlow": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "CashOutFlow": {
+    "dataSource": "postgre",
+    "public": true
   }
 }

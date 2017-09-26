@@ -7,6 +7,7 @@
 
 angular.module('app')
  .factory('ClientService', [
+   'CashInFlow',
    'PensionFund',
    'Dependant',
    'Employer',
@@ -17,6 +18,7 @@ angular.module('app')
    '$rootScope',
    '$q',
     function(
+      CashInFlow,
       PensionFund,
       Dependant,
       Employer,
@@ -400,7 +402,120 @@ angular.module('app')
                localCurrency: localCurrency
             }
          ).$promise
+      },
+
+      createCashInFlow: function(
+        pensionContributions,
+        insurancepolicyPremiums,
+        dividendsReInvested,
+        investmentInterest,
+        reInvestedBusinessesNetSurpluses,
+        salaryMonthlyContributions,
+        propertyRentals,
+        partTimeWork,
+        other
+       ){
+          return CashInFlow.create(
+            {
+               pensionContributions: pensionContributions,
+               insurancepolicyPremiums: insurancepolicyPremiums,
+               dividendsReInvested: dividendsReInvested,
+               investmentInterest: investmentInterest,
+               reInvestedBusinessesNetSurpluses: reInvestedBusinessesNetSurpluses,
+               salaryMonthlyContributions: salaryMonthlyContributions,
+               propertyRentals: propertyRentals,
+               partTimeWork: partTimeWork,
+               other: other,
+               clientId: $rootScope.$id
+            }
+          ).$promise
+       },
+
+      getCashInFlow: function(){
+         return Client.cashInFlows({id: $rootScope.$id}).$promise
+      },
+
+      editPensionContributions: function(id, pensionContributions){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               pensionContributions: pensionContributions
+            }
+         ).$promise
+      },
+
+      editInsurancepolicyPremiums: function(id, insurancepolicyPremiums){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               insurancepolicyPremiums: insurancepolicyPremiums
+            }
+         ).$promise
+      },
+
+      editDividendsReInvested: function(id, dividendsReInvested){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               dividendsReInvested: dividendsReInvested
+            }
+         ).$promise
+      },
+
+      editInvestmentInterest: function(id, investmentInterest){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               investmentInterest: investmentInterest
+            }
+         ).$promise
+      },
+
+      editReInvestedBusinessesNetSurpluses: function(id, reInvestedBusinessesNetSurpluses){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               reInvestedBusinessesNetSurpluses: reInvestedBusinessesNetSurpluses
+            }
+         ).$promise
+      },
+
+      editSalaryMonthlyContributions: function(id, salaryMonthlyContributions){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               salaryMonthlyContributions: salaryMonthlyContributions
+            }
+         ).$promise
+      },
+
+      editPropertyRentals: function(id, propertyRentals){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               propertyRentals: propertyRentals
+            }
+         ).$promise
+      },
+
+      editPartTimeWork: function(id, partTimeWork){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               partTimeWork: partTimeWork
+            }
+         ).$promise
+      },
+
+      editOther: function(id, other){
+         return CashInFlow.prototype$patchAttributes(
+            {
+               clientId: id,
+               other: other
+            }
+         ).$promise
       }
+
       }
    }
 ]

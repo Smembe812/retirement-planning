@@ -1906,6 +1906,54 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "DELETE",
             },
 
+            // INTERNAL. Use Client.cashInFlows() instead.
+            "prototype$__get__cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.create() instead.
+            "prototype$__create__cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.update() instead.
+            "prototype$__update__cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.destroy() instead.
+            "prototype$__destroy__cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows() instead.
+            "prototype$__get__cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.create() instead.
+            "prototype$__create__cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.update() instead.
+            "prototype$__update__cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.destroy() instead.
+            "prototype$__destroy__cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "DELETE",
+            },
+
             /**
              * @ngdoc method
              * @name lbServices.Client#prototype$__get__accessTokens
@@ -3032,6 +3080,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use InsuranceCompany.client() instead.
             "::get::InsuranceCompany::client": {
               url: urlBase + "/insuranceCompanies/:id/client",
+              method: "GET",
+            },
+
+            // INTERNAL. Use CashInFlow.client() instead.
+            "::get::CashInFlow::client": {
+              url: urlBase + "/CashInFlows/:id/client",
+              method: "GET",
+            },
+
+            // INTERNAL. Use CashOutFlow.client() instead.
+            "::get::CashOutFlow::client": {
+              url: urlBase + "/CashOutFlows/:id/client",
               method: "GET",
             },
 
@@ -5111,6 +5171,436 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.insuranceCompanies.update = function() {
           var TargetResource = $injector.get("InsuranceCompany");
           var action = TargetResource["::update::Client::insuranceCompanies"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Client.cashInFlows
+     * @header lbServices.Client.cashInFlows
+     * @object
+     * @description
+     *
+     * The object `Client.cashInFlows` groups methods
+     * manipulating `CashInFlow` instances related to `Client`.
+     *
+     * Call {@link lbServices.Client#cashInFlows Client.cashInFlows()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client#cashInFlows
+             * @methodOf lbServices.Client
+             *
+             * @description
+             *
+             * Fetches hasOne relation cashInFlows.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R.cashInFlows = function() {
+          var TargetResource = $injector.get("CashInFlow");
+          var action = TargetResource["::get::Client::cashInFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashInFlows#create
+             * @methodOf lbServices.Client.cashInFlows
+             *
+             * @description
+             *
+             * Creates a new instance in cashInFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R.cashInFlows.create = function() {
+          var TargetResource = $injector.get("CashInFlow");
+          var action = TargetResource["::create::Client::cashInFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashInFlows#createMany
+             * @methodOf lbServices.Client.cashInFlows
+             *
+             * @description
+             *
+             * Creates a new instance in cashInFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R.cashInFlows.createMany = function() {
+          var TargetResource = $injector.get("CashInFlow");
+          var action = TargetResource["::createMany::Client::cashInFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashInFlows#destroy
+             * @methodOf lbServices.Client.cashInFlows
+             *
+             * @description
+             *
+             * Deletes cashInFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.cashInFlows.destroy = function() {
+          var TargetResource = $injector.get("CashInFlow");
+          var action = TargetResource["::destroy::Client::cashInFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashInFlows#update
+             * @methodOf lbServices.Client.cashInFlows
+             *
+             * @description
+             *
+             * Update cashInFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R.cashInFlows.update = function() {
+          var TargetResource = $injector.get("CashInFlow");
+          var action = TargetResource["::update::Client::cashInFlows"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Client.cashOutFlows
+     * @header lbServices.Client.cashOutFlows
+     * @object
+     * @description
+     *
+     * The object `Client.cashOutFlows` groups methods
+     * manipulating `CashOutFlow` instances related to `Client`.
+     *
+     * Call {@link lbServices.Client#cashOutFlows Client.cashOutFlows()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client#cashOutFlows
+             * @methodOf lbServices.Client
+             *
+             * @description
+             *
+             * Fetches hasOne relation cashOutFlows.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R.cashOutFlows = function() {
+          var TargetResource = $injector.get("CashOutFlow");
+          var action = TargetResource["::get::Client::cashOutFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashOutFlows#create
+             * @methodOf lbServices.Client.cashOutFlows
+             *
+             * @description
+             *
+             * Creates a new instance in cashOutFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R.cashOutFlows.create = function() {
+          var TargetResource = $injector.get("CashOutFlow");
+          var action = TargetResource["::create::Client::cashOutFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashOutFlows#createMany
+             * @methodOf lbServices.Client.cashOutFlows
+             *
+             * @description
+             *
+             * Creates a new instance in cashOutFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R.cashOutFlows.createMany = function() {
+          var TargetResource = $injector.get("CashOutFlow");
+          var action = TargetResource["::createMany::Client::cashOutFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashOutFlows#destroy
+             * @methodOf lbServices.Client.cashOutFlows
+             *
+             * @description
+             *
+             * Deletes cashOutFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.cashOutFlows.destroy = function() {
+          var TargetResource = $injector.get("CashOutFlow");
+          var action = TargetResource["::destroy::Client::cashOutFlows"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.cashOutFlows#update
+             * @methodOf lbServices.Client.cashOutFlows
+             *
+             * @description
+             *
+             * Update cashOutFlows of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - client id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R.cashOutFlows.update = function() {
+          var TargetResource = $injector.get("CashOutFlow");
+          var action = TargetResource["::update::Client::cashOutFlows"];
           return action.apply(R, arguments);
         };
 
@@ -12402,6 +12892,1834 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.client = function() {
           var TargetResource = $injector.get("Client");
           var action = TargetResource["::get::InsuranceCompany::client"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.CashInFlow
+ * @header lbServices.CashInFlow
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `CashInFlow` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "CashInFlow",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector', '$q',
+      function(LoopBackResource, LoopBackAuth, $injector, $q) {
+        var R = LoopBackResource(
+        urlBase + "/CashInFlows/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use CashInFlow.client() instead.
+            "prototype$__get__client": {
+              url: urlBase + "/CashInFlows/:id/client",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#create
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/CashInFlows",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#createMany
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/CashInFlows",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#patchOrCreate
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "patchOrCreate": {
+              url: urlBase + "/CashInFlows",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#replaceOrCreate
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/CashInFlows/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#upsertWithWhere
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/CashInFlows/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#exists
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/CashInFlows/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#findById
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/CashInFlows/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#replaceById
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/CashInFlows/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#find
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/CashInFlows",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#findOne
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/CashInFlows/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#updateAll
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Information related to the outcome of the operation
+             */
+            "updateAll": {
+              url: urlBase + "/CashInFlows/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#deleteById
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/CashInFlows/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#count
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/CashInFlows/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#prototype$patchAttributes
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - CashInFlow id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+            "prototype$patchAttributes": {
+              url: urlBase + "/CashInFlows/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#createChangeStream
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/CashInFlows/change-stream",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashInFlows() instead.
+            "::get::Client::cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.create() instead.
+            "::create::Client::cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.createMany() instead.
+            "::createMany::Client::cashInFlows": {
+              isArray: true,
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.update() instead.
+            "::update::Client::cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Client.cashInFlows.destroy() instead.
+            "::destroy::Client::cashInFlows": {
+              url: urlBase + "/clients/:id/cashInFlows",
+              method: "DELETE",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#upsert
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R["upsert"] = R["patchOrCreate"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#updateOrCreate
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["patchOrCreate"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#patchOrCreateWithWhere
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#update
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Information related to the outcome of the operation
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#destroyById
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#removeById
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#prototype$updateAttributes
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - CashInFlow id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashInFlow` object.)
+             * </em>
+             */
+        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name lbServices.CashInFlow#modelName
+        * @propertyOf lbServices.CashInFlow
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `CashInFlow`.
+        */
+        R.modelName = "CashInFlow";
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashInFlow#client
+             * @methodOf lbServices.CashInFlow
+             *
+             * @description
+             *
+             * Fetches belongsTo relation client.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - CashInFlow id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Client` object.)
+             * </em>
+             */
+        R.client = function() {
+          var TargetResource = $injector.get("Client");
+          var action = TargetResource["::get::CashInFlow::client"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.CashOutFlow
+ * @header lbServices.CashOutFlow
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `CashOutFlow` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "CashOutFlow",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector', '$q',
+      function(LoopBackResource, LoopBackAuth, $injector, $q) {
+        var R = LoopBackResource(
+        urlBase + "/CashOutFlows/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use CashOutFlow.client() instead.
+            "prototype$__get__client": {
+              url: urlBase + "/CashOutFlows/:id/client",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#create
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/CashOutFlows",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#createMany
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/CashOutFlows",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#patchOrCreate
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "patchOrCreate": {
+              url: urlBase + "/CashOutFlows",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#replaceOrCreate
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/CashOutFlows/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#upsertWithWhere
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/CashOutFlows/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#exists
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/CashOutFlows/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#findById
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/CashOutFlows/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#replaceById
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/CashOutFlows/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#find
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/CashOutFlows",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#findOne
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/CashOutFlows/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#updateAll
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Information related to the outcome of the operation
+             */
+            "updateAll": {
+              url: urlBase + "/CashOutFlows/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#deleteById
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/CashOutFlows/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#count
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/CashOutFlows/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#prototype$patchAttributes
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - CashOutFlow id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+            "prototype$patchAttributes": {
+              url: urlBase + "/CashOutFlows/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#createChangeStream
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/CashOutFlows/change-stream",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows() instead.
+            "::get::Client::cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.create() instead.
+            "::create::Client::cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.createMany() instead.
+            "::createMany::Client::cashOutFlows": {
+              isArray: true,
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.update() instead.
+            "::update::Client::cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Client.cashOutFlows.destroy() instead.
+            "::destroy::Client::cashOutFlows": {
+              url: urlBase + "/clients/:id/cashOutFlows",
+              method: "DELETE",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#upsert
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R["upsert"] = R["patchOrCreate"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#updateOrCreate
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["patchOrCreate"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#patchOrCreateWithWhere
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#update
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Information related to the outcome of the operation
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#destroyById
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#removeById
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#prototype$updateAttributes
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - CashOutFlow id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CashOutFlow` object.)
+             * </em>
+             */
+        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name lbServices.CashOutFlow#modelName
+        * @propertyOf lbServices.CashOutFlow
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `CashOutFlow`.
+        */
+        R.modelName = "CashOutFlow";
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CashOutFlow#client
+             * @methodOf lbServices.CashOutFlow
+             *
+             * @description
+             *
+             * Fetches belongsTo relation client.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - CashOutFlow id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Client` object.)
+             * </em>
+             */
+        R.client = function() {
+          var TargetResource = $injector.get("Client");
+          var action = TargetResource["::get::CashOutFlow::client"];
           return action.apply(R, arguments);
         };
 

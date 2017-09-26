@@ -254,100 +254,6 @@
       </div>
    </div>
 </script>
-<script type="text/ng-template" id="update.spouse.html">
-   <div>
-
-      <div class="modal-header">
-         <h3 class="modal-title">Update your spouse's name</h3>
-      </div>
-      <div class="modal-body">
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                    <label class="font-dark md-font">Name</label>
-                     <div class="row">
-                       <div class="col-md-6">
-                        <div class="">
-                           <input type="text" class="form-control" placeholder="First" ng-model="client.firstname" required>
-                        </div>
-                       </div>
-                       <div class="col-md-6">
-                        <div class="">
-                           <input type="text" class="form-control" placeholder="Last" ng-model="client.lastname" required>
-                        </div>
-                       </div>
-                     </div>
-                 </div>
-            </div>
-         </div>
-      </div>
-      <div class="modal-footer">
-         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
-         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
-      </div>
-   </div>
-</script>
-<script type="text/ng-template" id="update.spouseDoB.html">
-   <div>
-
-      <div class="modal-header">
-         <h3 class="modal-title">Update your date of birth</h3>
-      </div>
-      <div class="modal-body">
-         <div class="row">
-            <div class="col-md-12">
-                 <div class="form-group">
-                     <label>Date of Birth</label>
-                     <div class="row">
-                                    <div class="col-md-6">
-                                      <div class="">
-                                        <p class="">
-                                          <select class="form-control ng-pristine ng-valid ng-touched" ng-model="client.birthmonth">
-                                              <option disabled="" selected="" value="Month">Month</option>
-                                              <option value="01">January</option>
-                                              <option value="02">February</option>
-                                              <option value="03">March</option>
-                                              <option value="04">April</option>
-                                              <option value="05">May</option>
-                                              <option value="06">June</option>
-                                              <option value="07">July</option>
-                                              <option value="08">August</option>
-                                              <option value="09">September</option>
-                                              <option value="10">October</option>
-                                              <option value="11">November</option>
-                                              <option value="12">December</option>
-                                          </select>
-
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                      <div class="">
-                                        <p class="">
-                                          <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Day" ng-model="client.birthday" required="">
-
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                      <div class="">
-                                        <p class="">
-                                          <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Year" ng-model="client.birthyear" required="">
-
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                 </div>
-            </div>
-         </div>
-      </div>
-      <div class="modal-footer">
-         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
-         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
-      </div>
-   </div>
-</script>
 <script type="text/ng-template" id="create.employer.html">
    <div>
       <div class="modal-header">
@@ -506,48 +412,42 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="#/home">
-                        <i class="ti-panel"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <!--<li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="table.html">
-                        <i class="ti-view-list-alt"></i>
-                        <p>Table List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="ti-text"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="ti-pencil-alt2"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="ti-map"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>-->
-                <li>
-                    <a href="notifications.html">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+              <li>
+                  <a href="#/home">
+                      <i class="ti-panel"></i>
+                      <p>Dashboard</p>
+                  </a>
+              </li>
+              <li >
+                  <a href="#/planner/bio">
+                      <i class="ti-user"></i>
+                      <p>My Bio</p>
+                  </a>
+              </li>
+              <li class="active">
+                  <a href="#/planner/work">
+                      <i class="ti-briefcase"></i>
+                      <p>Work</p>
+                  </a>
+              </li>
+              <li >
+                  <a href="#/planner/dependants">
+                      <i class="fa fa-child"></i>
+                      <p>Dependants</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="#/planner/pension-fund">
+                      <i class="fa fa-money"></i>
+                      <p>Pension Fund</p>
+                  </a>
+              </li>
+           <li>
+               <a href="notifications.html">
+                   <i class="ti-bell"></i>
+                   <p>Notifications</p>
+               </a>
+           </li>
 				<!--<li class="active-pro">
                     <a href="upgrade.html">
                         <i class="ti-export"></i>

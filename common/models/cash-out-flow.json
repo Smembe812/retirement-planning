@@ -1,0 +1,100 @@
+{
+  "name": "CashOutFlow",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "bills": {
+      "type": "number",
+      "default": 0
+    },
+    "lifeInsurancePolicyPremiums": {
+      "type": "number",
+      "default": 0
+    },
+    "medicalCover": {
+      "type": "number",
+      "default": 0
+    },
+    "propertyInsurance": {
+      "type": "number",
+      "default": 0
+    },
+    "vehicleInsurance": {
+      "type": "number",
+      "default": 0
+    },
+    "roadTaxes": {
+      "type": "number",
+      "default": 0
+    },
+    "vehicleMaintanance": {
+      "type": "number",
+      "default": 0
+    },
+    "rentalPayables": {
+      "type": "number",
+      "default": 0
+    },
+    "cityRates": {
+      "type": "number",
+      "default": 0
+    },
+    "groundRent": {
+      "type": "number",
+      "default": 0
+    },
+    "travelEntertainment": {
+      "type": "number",
+      "default": 0
+    },
+    "mortageRepayment": {
+      "type": "number",
+      "default": 0
+    },
+    "loanRepayments": {
+      "type": "number",
+      "default": 0
+    },
+    "gas": {
+      "type": "number",
+      "default": 0
+    },
+    "schoolFees": {
+      "type": "number",
+      "default": 0
+    },
+    "donations": {
+      "type": "number",
+      "default": 0
+    },
+    "groceries": {
+      "type": "number",
+      "default": 0
+    },
+    "food": {
+      "type": "number",
+      "default": 0
+    },
+    "clothing": {
+      "type": "number",
+      "default": 0
+    },
+    "telephone": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
