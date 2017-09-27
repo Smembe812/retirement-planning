@@ -155,7 +155,10 @@ app.controller('CashInFLowController', [
           });
 
           modalInstance.result.then(function (propertyRentals) {
-            ClientService.editPartTimeWork($scope.client.cashInFlow.id, propertyRentals).then(
+            ClientService.editPropertyRentals(
+              $scope.client.cashInFlow.id,
+              propertyRentals
+            ).then(
               function(results){
                 $scope.client.cashInFlow.propertyRentals = propertyRentals;
                 console.log(results);
@@ -183,7 +186,10 @@ app.controller('CashInFLowController', [
            });
 
            modalInstance.result.then(function (salaryMonthlyContributions) {
-             ClientService.editPartTimeWork($scope.client.cashInFlow.id, salaryMonthlyContributions).then(
+             ClientService.editSalaryMonthlyContributions(
+               $scope.client.cashInFlow.id,
+               salaryMonthlyContributions
+             ).then(
                function(results){
                  $scope.client.cashInFlow.salaryMonthlyContributions = salaryMonthlyContributions;
                  console.log(results);
@@ -211,7 +217,10 @@ app.controller('CashInFLowController', [
               });
 
               modalInstance.result.then(function (reInvestedBusinessesNetSurpluses) {
-                ClientService.editPartTimeWork($scope.client.cashInFlow.id, reInvestedBusinessesNetSurpluses).then(
+                ClientService.editReInvestedBusinessesNetSurpluses(
+                  $scope.client.cashInFlow.id,
+                  reInvestedBusinessesNetSurpluses
+                ).then(
                   function(results){
                     $scope.client.cashInFlow.reInvestedBusinessesNetSurpluses = reInvestedBusinessesNetSurpluses;
                     console.log(results);
@@ -239,7 +248,7 @@ app.controller('CashInFLowController', [
                });
 
                modalInstance.result.then(function (investmentInterest) {
-                 ClientService.editPartTimeWork($scope.client.cashInFlow.id, investmentInterest).then(
+                 ClientService.editInvestmentInterest($scope.client.cashInFlow.id, investmentInterest).then(
                    function(results){
                      $scope.client.cashInFlow.investmentInterest = investmentInterest;
                      console.log(results);
@@ -267,7 +276,7 @@ app.controller('CashInFLowController', [
                 });
 
                 modalInstance.result.then(function (dividendsReInvested) {
-                  ClientService.editPartTimeWork($scope.client.cashInFlow.id, dividendsReInvested).then(
+                  ClientService.editDividendsReInvested($scope.client.cashInFlow.id, dividendsReInvested).then(
                     function(results){
                       $scope.client.cashInFlow.dividendsReInvested = dividendsReInvested;
                       console.log(results);
@@ -295,7 +304,7 @@ app.controller('CashInFLowController', [
                  });
 
                  modalInstance.result.then(function (insurancepolicyPremiums) {
-                   ClientService.editPartTimeWork($scope.client.cashInFlow.id, insurancepolicyPremiums).then(
+                   ClientService.editInsurancepolicyPremiums($scope.client.cashInFlow.id, insurancepolicyPremiums).then(
                      function(results){
                        $scope.client.cashInFlow.insurancepolicyPremiums = insurancepolicyPremiums;
                        console.log(results);
@@ -323,7 +332,7 @@ app.controller('CashInFLowController', [
                   });
 
                   modalInstance.result.then(function (pensionContributions) {
-                    ClientService.editPartTimeWork($scope.client.cashInFlow.id, pensionContributions).then(
+                    ClientService.editPensionContributions($scope.client.cashInFlow.id, pensionContributions).then(
                       function(results){
                         $scope.client.cashInFlow.pensionContributions = pensionContributions;
                         console.log(results);

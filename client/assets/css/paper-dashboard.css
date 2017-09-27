@@ -1459,6 +1459,7 @@ select {
   margin: 5px 0px;
   padding: 20px 15px;
   font-size: 20px;
+  color: #FFFFFF;
 }
 .navbar .navbar-nav > li > a {
   line-height: 1.42857;

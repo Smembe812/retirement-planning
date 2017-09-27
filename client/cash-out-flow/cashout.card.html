@@ -1,0 +1,295 @@
+<div class="card" >
+<div class="header">
+    <h3 class="title"><strong>Cash out flow data</strong></h3>
+</div>
+<div class="content">
+    <ul class="list-unstyled team-members" ng-hide="hasCashOutFlow">
+        <li >
+              <div class="row" >
+                  <div class="col-lg-12 col-md-9 col-xs-8">
+                      <div class="alert alert-info">
+                          <button type="button" aria-hidden="true" class="close">×</button>
+                          <span><b> Info - </b> You have no informaion about your cash out flow.</span>
+                      </div>
+
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-xs-8">
+                      <span class="font-medium"><strong>No cash out flow details available</strong></span>
+                      <p>
+                          Add your cash out flow here.
+                      </p>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-xs-4">
+                      <button ng-click="createCashOutFlowModal()" class="btn btn-blue"><i class="ti ti-add"></i>Add</button>
+
+                  </div>
+              </div>
+          </li>
+
+    </ul>
+
+    <ul class="list-unstyled team-members" ng-show="hasCashOutFlow">
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Bills (Water, Electricity)</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.bills}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editBills()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Groceries (Soap, washing cosmetics, etc)</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.groceries}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editGroceries()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Life Insurance Policy Premiums</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.lifeInsurancePolicyPremiums}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editLifeInsurancePolicyPremiums()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Medical Cover Insurance payments</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.medicalCover}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editMedicalCover()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Property/Householders Insurance Premiums</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.propertyInsurance}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editPropertyInsurance()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Motor Vehicle Insurance Premiums</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.vehicleInsurance}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editVehicleInsurance()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Road Taxes</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.roadTaxes}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editRoadTaxes()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>City Rates</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.cityRates}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editCityRates()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Rentals payable</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.rentalPayables}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editCashOutFlow()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Ground Rent</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.groundRent}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editGroundRent()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Mortgage Repayment</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.mortageRepayment}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editMortageRepayment()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Loan repayment</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.loanRepayments}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editLoanRepayments()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>School Fees</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.schoolFees}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editSchoolFees()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Donations</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.donations}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editDonations()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Food</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.food}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editFood()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Clothing</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.clothing}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editClothing()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Gas and fuel</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.gas}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editGas()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Telephone</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.telephone}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editTelephone()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Travel and entertainment</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.travelEntertainment}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editTravelEntertainment()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>Motor Vehicle Maintenance</strong></span>
+                    <p>
+                        {{client.currency}} {{client.cashOutFlow.vehicleMaintanance}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editVehicleMaintanance()"><i class="ti ti-pencil"></i>Edit</button>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+</div>

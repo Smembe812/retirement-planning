@@ -5,7 +5,8 @@ angular.module('app', [
     'lbServices',
     'ui.bootstrap',
     'ngTagsInput',
-    'ngAnimate'
+    'ngAnimate',
+    'ngMask'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
@@ -233,6 +234,20 @@ angular.module('app', [
           '../assets/css/themify-icons.css'
         ],
         controller: 'CashInFLowController',
+        authenticate: true
+      })
+      .state('planner-cash-out-flow', {
+        url: '/planner/cash-out-flow',
+        templateUrl: '../cash-out-flow/cashout.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
+          '../assets/css/ng-tags-input.min.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'CashOutFLowController',
         authenticate: true
       })
       .state('planner-work', {

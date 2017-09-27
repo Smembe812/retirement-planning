@@ -7,6 +7,7 @@
 
 angular.module('app')
  .factory('ClientService', [
+    'CashOutFlow',
    'CashInFlow',
    'PensionFund',
    'Dependant',
@@ -18,6 +19,7 @@ angular.module('app')
    '$rootScope',
    '$q',
     function(
+      CashOutFlow,
       CashInFlow,
       PensionFund,
       Dependant,
@@ -438,7 +440,7 @@ angular.module('app')
       editPensionContributions: function(id, pensionContributions){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                pensionContributions: pensionContributions
             }
          ).$promise
@@ -447,7 +449,7 @@ angular.module('app')
       editInsurancepolicyPremiums: function(id, insurancepolicyPremiums){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                insurancepolicyPremiums: insurancepolicyPremiums
             }
          ).$promise
@@ -456,7 +458,7 @@ angular.module('app')
       editDividendsReInvested: function(id, dividendsReInvested){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                dividendsReInvested: dividendsReInvested
             }
          ).$promise
@@ -465,7 +467,7 @@ angular.module('app')
       editInvestmentInterest: function(id, investmentInterest){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                investmentInterest: investmentInterest
             }
          ).$promise
@@ -474,7 +476,7 @@ angular.module('app')
       editReInvestedBusinessesNetSurpluses: function(id, reInvestedBusinessesNetSurpluses){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                reInvestedBusinessesNetSurpluses: reInvestedBusinessesNetSurpluses
             }
          ).$promise
@@ -483,7 +485,7 @@ angular.module('app')
       editSalaryMonthlyContributions: function(id, salaryMonthlyContributions){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                salaryMonthlyContributions: salaryMonthlyContributions
             }
          ).$promise
@@ -492,7 +494,7 @@ angular.module('app')
       editPropertyRentals: function(id, propertyRentals){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                propertyRentals: propertyRentals
             }
          ).$promise
@@ -501,7 +503,7 @@ angular.module('app')
       editPartTimeWork: function(id, partTimeWork){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                partTimeWork: partTimeWork
             }
          ).$promise
@@ -510,8 +512,242 @@ angular.module('app')
       editOther: function(id, other){
          return CashInFlow.prototype$patchAttributes(
             {
-               clientId: id,
+               id: id,
                other: other
+            }
+         ).$promise
+      },
+
+      createCashOutFlow: function(
+         bills,
+         lifeInsurancePolicyPremiums,
+         medicalCover,
+         propertyInsurance,
+         vehicleInsurance,
+         roadTaxes,
+         vehicleMaintanance,
+         rentalPayables,
+         cityRates,
+         groundRent,
+         travelEntertainment,
+         mortageRepayment,
+         loanRepayments,
+         gas,
+         schoolFees,
+         donations,
+         groceries,
+         food,
+         clothing,
+         telephone
+      ){
+         return CashOutFlow.create(
+           {
+
+             bills: bills,
+             lifeInsurancePolicyPremiums: lifeInsurancePolicyPremiums,
+             medicalCover: medicalCover,
+             propertyInsurance: propertyInsurance,
+             vehicleInsurance: vehicleInsurance,
+             roadTaxes: roadTaxes,
+             vehicleMaintanance: vehicleMaintanance,
+             rentalPayables: rentalPayables,
+             cityRates: cityRates,
+             groundRent: groundRent,
+             travelEntertainment: travelEntertainment,
+             mortageRepayment: mortageRepayment,
+             loanRepayments: loanRepayments,
+             gas: gas,
+             schoolFees: schoolFees,
+             donations: donations,
+             groceries: groceries,
+             food: food,
+             clothing: clothing,
+             telephone: telephone,
+             clientId: $rootScope.$id
+           }
+         ).$promise
+      },
+
+      getCashOutFlow: function(){
+         return Client.cashOutFlows({id: $rootScope.$id}).$promise
+      },
+
+      editBills: function(id, bills){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id, id,
+               bills: bills
+            }
+         ).$promise
+      },
+
+      editGroceries: function(id, groceries){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               groceries: groceries
+            }
+         ).$promise
+      },
+
+      editLifeInsurancePolicyPremiums: function(id, lifeInsurancePolicyPremiums){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               lifeInsurancePolicyPremiums: lifeInsurancePolicyPremiums
+            }
+         ).$promise
+      },
+
+      editMedicalCover: function(id, medicalCover){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               medicalCover: medicalCover
+            }
+         ).$promise
+      },
+
+      editPropertyInsurance: function(id, propertyInsurance){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               propertyInsurance: propertyInsurance
+            }
+         ).$promise
+      },
+
+      editVehicleInsurance: function(id, vehicleInsurance){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               vehicleInsurance: vehicleInsurance
+            }
+         ).$promise
+      },
+
+      editRoadTaxes: function(id, roadTaxes){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               roadTaxes: roadTaxes
+            }
+         ).$promise
+      },
+
+      editCityRates: function(id, cityRates){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               cityRates: cityRates
+            }
+         ).$promise
+      },
+
+      editCashOutFlow: function(id, rentalPayables){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               rentalPayables: rentalPayables
+            }
+         ).$promise
+      },
+
+      editGroundRent: function(id, groundRent){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               groundRent: groundRent
+            }
+         ).$promise
+      },
+
+      editMortageRepayment: function(id, mortageRepayment){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               mortageRepayment: mortageRepayment
+            }
+         ).$promise
+      },
+
+      editLoanRepayments: function(id, loanRepayments){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               loanRepayments: loanRepayments
+            }
+         ).$promise
+      },
+
+      editSchoolFees: function(id, schoolFees){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               schoolFees: schoolFees
+            }
+         ).$promise
+      },
+
+      editDonations: function(id, donations){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               donations: donations
+            }
+         ).$promise
+      },
+
+      editFood: function(id, food){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               food: food
+            }
+         ).$promise
+      },
+
+      editClothing: function(id, clothing){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               clothing: clothing
+            }
+         ).$promise
+      },
+
+      editGas: function(id, gas){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               gas: gas
+            }
+         ).$promise
+      },
+
+      editTelephone: function(id, telephone){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               telephone: telephone
+            }
+         ).$promise
+      },
+
+      editTravelEntertainment: function(id, travelEntertainment){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               travelEntertainment: travelEntertainment
+            }
+         ).$promise
+      },
+
+      editVehicleMaintanance: function(id, vehicleMaintanance){
+         return CashOutFlow.prototype$patchAttributes(
+            {
+               id: id,
+               vehicleMaintanance: vehicleMaintanance
             }
          ).$promise
       }
