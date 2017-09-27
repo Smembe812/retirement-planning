@@ -11,7 +11,7 @@
 var url = require('url');
 
 var conf = {
-  hostname: 'localhost',
+  hostname: 'retirement-planning.herokuapp.com',
   port: 3000,
   restApiRoot: '/api', // The path where to mount the REST API app
   legacyExplorer: false
@@ -21,7 +21,7 @@ var conf = {
 // Replace with a full url (including hostname) if your client is being
 // served from a different server than your REST API.
 conf.restApiUrl = url.format({
-  protocol: 'http',
+  protocol: 'https',
   slashes: true,
   hostname: conf.hostname,
   port: conf.port,
