@@ -167,6 +167,17 @@ angular.module('app', [
         ],
         controller: 'SignUpController'
       })
+      .state('activate', {
+        url: '/activate',
+        templateUrl: 'views/activate.account.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/ct-paper.css',
+          '../assets/css/rpc.css',
+          '../assets/css/examples.css'
+        ],
+        controller: 'SignUpController'
+      })
       .state('home', {
         url: '/home',
         templateUrl: 'views/home.html',

@@ -13,7 +13,7 @@ angular.module('app')
     '$uibModal',
     '$log',
   function($scope, $state, $rootScope, ClientService, $uibModal, $log){
-
+    //console.log($rootScope.currentUser.id);
 
     $scope.isCollapsed = true;
     $scope.spousepresence = true;

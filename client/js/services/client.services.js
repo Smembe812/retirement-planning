@@ -36,8 +36,9 @@ angular.module('app')
           * @return {[object]} [clientbio object]
           */
         getClientBio: function(){
+           console.log($rootScope.currentUser.id);
           return Client.getClientBio(
-             {id:$rootScope.$id}
+             {id:$rootScope.currentUser.id}
           ).$promise;
         },
 
@@ -88,7 +89,7 @@ angular.module('app')
           * @return {[array]} [medical conditions array]
           */
          getMedicalConditions: function() {
-            return Client.medicalConditions({id:$rootScope.$id}).$promise;
+            return Client.medicalConditions({id:$rootScope.currentUser.id}).$promise;
          },
 
          /**
@@ -146,7 +147,7 @@ angular.module('app')
                  name: name,
                  dob: dob,
                  occupation: occupation,
-                 clientId: $rootScope.$id
+                 clientId: $rootScope.currentUser.id
                }
              ).$promise
           },
@@ -156,7 +157,7 @@ angular.module('app')
            * @return {[array]} [array of spouses]
            */
           getSpouse: function(){
-             return Client.spouses({id:$rootScope.$id}).$promise;
+             return Client.spouses({id:$rootScope.currentUser.id}).$promise;
           },
 
           /**
@@ -202,9 +203,8 @@ angular.module('app')
            * @return {[$promise]} [handle success and errors]
            */
           getEmploymentDetails: function() {
-             console.log("rootScope is: " + $rootScope.$id);
             return Client.employers(
-               {id: 1}
+               {id: $rootScope.currentUser.id}
               ).$promise
           },
 
@@ -231,7 +231,7 @@ angular.module('app')
                 dateFirstJoined: dateFirstJoined,
                 dateConfirmed: dateConfirmed,
                 currentMonthlySalary: currentMonthlySalary,
-                clientId: $rootScope.$id
+                clientId: $rootScope.currentUser.id
               }
             ).$promise
           },
@@ -316,13 +316,13 @@ angular.module('app')
            return Dependant.create(
              {
                 name: name,
-                clientId: $rootScope.$id
+                clientId: $rootScope.currentUser.id
              }
           ).$promise
        },
 
        getDependants: function(){
-          return Client.dependants({id: $rootScope.$id}).$promise
+          return Client.dependants({id: $rootScope.currentUser.id}).$promise
        },
 
        updateDependant: function(id, name){
@@ -352,13 +352,13 @@ angular.module('app')
              earlyRetirementAge: earlyRetirementAge,
              lateRetirementAge: lateRetirementAge,
              localCurrency: localCurrency,
-             clientId: $rootScope.$id
+             clientId: $rootScope.currentUser.id
            }
         ).$promise
       },
 
       getPensionFund: function(){
-         return Client.pensionFunds({id: $rootScope.$id}).$promise
+         return Client.pensionFunds({id: $rootScope.currentUser.id}).$promise
       },
 
       editPensionFundName: function(id, name){
@@ -428,13 +428,13 @@ angular.module('app')
                propertyRentals: propertyRentals,
                partTimeWork: partTimeWork,
                other: other,
-               clientId: $rootScope.$id
+               clientId: $rootScope.currentUser.id
             }
           ).$promise
        },
 
       getCashInFlow: function(){
-         return Client.cashInFlows({id: $rootScope.$id}).$promise
+         return Client.cashInFlows({id: $rootScope.currentUser.id}).$promise
       },
 
       editPensionContributions: function(id, pensionContributions){
@@ -563,13 +563,13 @@ angular.module('app')
              food: food,
              clothing: clothing,
              telephone: telephone,
-             clientId: $rootScope.$id
+             clientId: $rootScope.currentUser.id
            }
          ).$promise
       },
 
       getCashOutFlow: function(){
-         return Client.cashOutFlows({id: $rootScope.$id}).$promise
+         return Client.cashOutFlows({id: $rootScope.currentUser.id}).$promise
       },
 
       editBills: function(id, bills){
@@ -733,24 +733,6 @@ angular.module('app')
             }
          ).$promise
       },
-
-      editTravelEntertainment: function(id, travelEntertainment){
-         return CashOutFlow.prototype$patchAttributes(
-            {
-               id: id,
-               travelEntertainment: travelEntertainment
-            }
-         ).$promise
-      },
-
-      editVehicleMaintanance: function(id, vehicleMaintanance){
-         return CashOutFlow.prototype$patchAttributes(
-            {
-               id: id,
-               vehicleMaintanance: vehicleMaintanance
-            }
-         ).$promise
-      }
 
       }
    }

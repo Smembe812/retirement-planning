@@ -54,13 +54,15 @@ module.exports = function(Client) {
   //send verification email after registration
   Client.afterRemote('create', function(ctx, client, next) {
     //var Gallery = User.app.models.Gallery;
+    var url = Client.app.get('url').replace(/\/$/, '')
 
     var options = {
       type: 'email',
       to: client.email,
       from: 'noreply@loopback.com',
       subject: 'Thanks for registering.',
-      client: client
+      client: client,
+      verifyHref: url + '/api/clients/confirm?uid='+ client.id + '&redirect=/'
     };
     /**
      * [verify sign up email]

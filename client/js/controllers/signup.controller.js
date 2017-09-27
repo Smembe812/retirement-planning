@@ -16,6 +16,16 @@ angular.module('app')
         birthyear: null
       }
 
+      $scope.isNotConfirmed = false;
+      $scope.checkPassword = function(){
+
+        if ($scope.client.password === $scope.client.passwordConfirm && $scope.client.password != undefined) {
+          $scope.isNotConfirmed = false;
+        }
+        else {
+          $scope.isNotConfirmed = true;
+        }
+      }
       /**
        * [initialize client registration]
        * @return {[promise]} [client data created on success]
@@ -49,7 +59,7 @@ angular.module('app')
                   $scope.client.sex,
                   res.client.id
                 ).then()
-                $state.transitionTo('signin');
+                $state.transitionTo('activate');
               });
 
           }else{
