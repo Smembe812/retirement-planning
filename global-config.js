@@ -27,3 +27,6 @@ conf.restApiUrl = url.format({
   port: conf.port,
   pathname: conf.restApiRoot
 });
+
+
+module.exports = conf;

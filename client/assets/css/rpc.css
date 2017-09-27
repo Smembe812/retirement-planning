@@ -335,3 +335,10 @@ textarea.form-control:focus, textarea.form-control:active {
   background: #FAFAFA;
   color: #1A237E;
 }
+
+.btn-font-size{
+  font-size: 0.9em;
+}
+.dark-font{
+  color: #212121
+}

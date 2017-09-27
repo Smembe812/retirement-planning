@@ -9,8 +9,6 @@ module.exports = function(Client) {
    */
   Client.getClientBio = function(ctx, cb){
     var clientid = ctx.args.id;
-    console.log(clientid);
-
     Client.findById(clientid, function(err, client){
       client.clientHasData(function(err, clientdata){
         if (err) throw err;
@@ -90,7 +88,9 @@ module.exports = function(Client) {
 
   //send password reset link when requested
   Client.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+
+    //var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var url = Client.app.get('url').replace(/\/$/, '') + '/reset-password';
     var html = 'Click <a href="' + url + '?access_token=' +
         info.accessToken.id + '">here</a> to reset your password';
 
