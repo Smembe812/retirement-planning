@@ -1,6 +1,6 @@
 {
   "restApiRoot": "/api",
-  "host": "0.0.0.0",
+  "host": "retirement-planning.herokuapp.com",
   "port": 3000,
   "remoting": {
     "context": false,
