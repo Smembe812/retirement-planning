@@ -28,8 +28,7 @@ module.exports = function(Client) {
             var clientbio = {
               clientData: clientdata,
               spouses: spouse,
-              medicalConditions: medicalConditions,
-              url: self.get('url')
+              medicalConditions: medicalConditions
             }
 
             ctx.res.json(clientbio);
@@ -55,7 +54,8 @@ module.exports = function(Client) {
   //send verification email after registration
   Client.afterRemote('create', function(ctx, client, next) {
     //var Gallery = User.app.models.Gallery;
-    var url = Client.app.get('url').replace(/\/$/, '')
+    //var url = Client.app.get('url').replace(/\/$/, '')
+    var ulr = 'https://retirement-planning.herokuapp.com';
 
     var options = {
       type: 'email',
