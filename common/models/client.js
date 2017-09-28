@@ -64,7 +64,7 @@ module.exports = function(Client) {
       subject: 'Thanks for registering.',
       client: client,
       verifyHref: url + '/api/clients/confirm?uid='+ client.id + '&redirect=/',
-      redirect: '/signin'
+      redirect: '#/signin'
     };
     /**
      * [verify sign up email]
