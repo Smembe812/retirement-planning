@@ -55,7 +55,7 @@ module.exports = function(Client) {
   Client.afterRemote('create', function(ctx, client, next) {
     //var Gallery = User.app.models.Gallery;
     //var url = Client.app.get('url').replace(/\/$/, '')
-    var ulr = 'https://retirement-planning.herokuapp.com';
+    var url = 'https://retirement-planning.herokuapp.com';
 
     var options = {
       type: 'email',
