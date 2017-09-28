@@ -63,7 +63,8 @@ module.exports = function(Client) {
       from: 'noreply@loopback.com',
       subject: 'Thanks for registering.',
       client: client,
-      verifyHref: url + '/api/clients/confirm?uid='+ client.id + '&redirect=/'
+      verifyHref: url + '/api/clients/confirm?uid='+ client.id + '&redirect=/',
+      redirect: '/signin'
     };
     /**
      * [verify sign up email]
