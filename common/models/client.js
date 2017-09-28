@@ -8,7 +8,6 @@ module.exports = function(Client) {
    * @return {[object]}     [clientbio]
    */
   Client.getClientBio = function(ctx, cb){
-    console.log(self.get('url'));
     var clientid = ctx.args.id;
     Client.findById(clientid, function(err, client){
       client.clientHasData(function(err, clientdata){
@@ -29,7 +28,8 @@ module.exports = function(Client) {
             var clientbio = {
               clientData: clientdata,
               spouses: spouse,
-              medicalConditions: medicalConditions
+              medicalConditions: medicalConditions,
+              url: self.get('url')
             }
 
             ctx.res.json(clientbio);
