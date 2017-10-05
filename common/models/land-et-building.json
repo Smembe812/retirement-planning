@@ -1,0 +1,22 @@
+{
+  "name": "landEtBuilding",
+  "plural": "landEtBuildings",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "standNumber": {
+      "type": "string",
+      "required": true
+    },
+    "dateValued": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "MotorVehicle",
+  "plural": "MotorVehicles",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "chassisNumber": {
+      "type": "string",
+      "default": "manufacturedDate"
+    },
+    "manufacturedDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

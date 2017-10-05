@@ -1,0 +1,25 @@
+{
+  "name": "InsurancePolicies",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "companyName": {
+      "type": "string",
+      "required": true
+    },
+    "serialNumber": {
+      "type": "string",
+      "required": true
+    },
+    "maturityDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

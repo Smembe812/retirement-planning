@@ -1,0 +1,18 @@
+{
+  "name": "Accessory",
+  "plural": "accessories",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

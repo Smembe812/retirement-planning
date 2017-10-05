@@ -1,4 +1,4 @@
-var postgresURL = process.env.DATABASE_URL;
+/*var postgresURL = process.env.DATABASE_URL;
 
 module.exports = {
 
@@ -7,3 +7,4 @@ module.exports = {
     url: postgresURL
   }
 };
+*/

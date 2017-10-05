@@ -1,0 +1,14 @@
+{
+  "name": "LandEtBuildingLiability",
+  "plural": "landEtBuildingLiabilities",
+  "base": "Liability",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

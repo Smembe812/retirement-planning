@@ -1,0 +1,21 @@
+{
+  "name": "productiveAnimals",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tagNumber": {
+      "type": "string",
+      "required": true
+    },
+    "dateValued": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

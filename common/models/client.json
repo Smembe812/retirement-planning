@@ -53,6 +53,16 @@
       "type": "hasOne",
       "model": "CashOutFlow",
       "foreignKey": "clientId"
+    },
+    "assets": {
+      "type": "hasMany",
+      "model": "asset",
+      "foreignKey": "clientId"
+    },
+    "liabilities": {
+      "type": "hasMany",
+      "model": "Liability",
+      "foreignKey": "clientId"
     }
   },
   "acls": [

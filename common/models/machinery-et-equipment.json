@@ -1,0 +1,22 @@
+{
+  "name": "machineryEtEquipment",
+  "plural": "machineriesEtEquipments",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "engineNumber": {
+      "type": "string",
+      "required": true
+    },
+    "manufacturedDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

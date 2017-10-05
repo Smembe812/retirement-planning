@@ -48,7 +48,7 @@ dataSource.disconnect();
 dataSource.automigrate('InsuranceCompany', function(err){
   if (err) throw err;
   dataSource.disconnect();
-});*/
+});
 dataSource.automigrate('CashOutFlow', function(err){
 if (err) throw err;
 dataSource.disconnect();
@@ -58,7 +58,16 @@ dataSource.automigrate('CashInFlow', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });
-/*
+dataSource.automigrate('asset', function(err){
+if (err) throw err;
+dataSource.disconnect();
+});
+*/
+dataSource.automigrate('machineryEtEquipment', function(err){
+  if (err) throw err;
+  dataSource.disconnect();
+});
+ /*
 dataSource.automigrate('subscriber', function(err){
   if (err) throw err;
   dataSource.disconnect();

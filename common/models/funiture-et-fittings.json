@@ -1,0 +1,21 @@
+{
+  "name": "funitureEtFittings",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "serialNumber": {
+      "type": "string",
+      "required": true
+    },
+    "manufacturedDate": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -14,75 +14,131 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "postgre"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": false
   },
   "Email": {
     "dataSource": "foremails"
   },
   "client": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true,
     "options": {
       "emailVerificationRequired": true
     }
   },
   "clientData": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "medicalCondition": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "dependant": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "spouse": {
-    "dataSource": "db",
+    "dataSource": "postgre",
+    "public": true
+  },
+  "asset": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "landEtBuilding": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "machineryEtEquipment": {
+    "dataSource": "postgre",
     "public": true
   },
   "emailList": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "employer": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "PensionFund": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "InsuranceCompany": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "CashInFlow": {
-    "dataSource": "db",
+    "dataSource": "postgre",
     "public": true
   },
   "CashOutFlow": {
-    "dataSource": "db",
+    "dataSource": "postgre",
+    "public": true
+  },
+  "funitureEtFittings": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "productiveAnimals": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "woodlotEtPlantation": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "MotorVehicle": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "InsurancePolicies": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "BankAccount": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "Deptor": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "Accessory": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "Liability": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "LandEtBuildingLiability": {
+    "dataSource": "postgre",
+    "public": true
+  },
+  "creditor": {
+    "dataSource": "postgre",
     "public": true
   }
 }

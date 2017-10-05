@@ -1,0 +1,22 @@
+{
+  "name": "woodlotEtPlantation",
+  "plural": "woodlotEtPlantations",
+  "base": "asset",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "acreageNumber": {
+      "type": "string",
+      "required": true
+    },
+    "plantationDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Liability",
+  "plural": "liabilities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "accountNumber": {
+      "type": "string",
+      "required": true
+    },
+    "outstandingValue": {
+      "type": "number",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "rate": {
+      "type": "number"
+    },
+    "instalmentAmount": {
+      "type": "number"
+    },
+    "type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
