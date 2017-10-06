@@ -1,0 +1,49 @@
+<div class="card" >
+<div class="header">
+    <h3 class="title"><strong>Liabilities data</strong></h3>
+</div>
+<div class="content">
+    <ul class="list-unstyled team-members" ng-hide="hasLiability">
+        <li >
+              <div class="row" >
+                  <div class="col-lg-12 col-md-9 col-xs-8">
+                      <div class="alert alert-info">
+                          <button type="button" aria-hidden="true" class="close">×</button>
+                          <span><b> Info - </b> You have no informaion about your cash in flow.</span>
+                      </div>
+
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-xs-8">
+                      <span class="font-medium"><strong>No liabilities details available</strong></span>
+                      <p>
+                          Add your liabilities here.
+                      </p>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-xs-4">
+                      <button ng-click="createLiabilityModal()" class="btn btn-blue"><i class="ti ti-add"></i>Add</button>
+
+                  </div>
+              </div>
+          </li>
+
+    </ul>
+
+    <ul class="list-unstyled team-members" ng-show="hasLiability">
+      <button type="button" ng-click="createLiabilityModal()" class="btn btn-circle btn-raised ripple-effect btn-blue center-block"><i class="fa fa-plus"></i></button>
+        <li ng-repeat="liability in client.liabilities">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-7">
+                    <span class="font-medium"><strong>{{liability.type}}</strong></span>
+                    <p>
+                        ${{liability.outstandingValue | number}}
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-5 col-xs-5">
+                    <button class="btn btn-blue" ng-click="editLiability(null, liability)"><i class="ti ti-pencil"></i>Edit</button>
+                    <button class="btn btn-red" ng-click="deleteLiability(null, liability)"><i class="ti ti-trash"></i>Delete</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>

@@ -7,7 +7,9 @@
 
 angular.module('app')
  .factory('ClientService', [
-    'CashOutFlow',
+   'Creditor',
+   'Liability',
+   'CashOutFlow',
    'CashInFlow',
    'PensionFund',
    'Dependant',
@@ -19,6 +21,8 @@ angular.module('app')
    '$rootScope',
    '$q',
     function(
+      Creditor,
+      Liability,
       CashOutFlow,
       CashInFlow,
       PensionFund,
@@ -733,6 +737,144 @@ angular.module('app')
             }
          ).$promise
       },
+
+      /**
+       * [create a liability]
+       * @param  {[string]} accountNumber    [client liability account number]
+       * @param  {[integer]} outstandingValue [client liability outstanding Value]
+       * @param  {[date]} endDate          [end date of liability]
+       * @param  {[integer]} rate             [description]
+       * @param  {[integer]} instalmentAmount [description]
+       * @return {[$promise]}                  [description]
+       */
+      createLiability: function(
+        accountNumber,
+        outstandingValue,
+        endDate,
+        rate,
+        instalmentAmount,
+        type
+      ){
+        return Liability.create(
+          {
+            accountNumber: accountNumber,
+            outstandingValue: outstandingValue,
+            endDate: endDate,
+            rate: rate,
+            instalmentAmount: instalmentAmount,
+            type: type,
+            clientId: $rootScope.currentUser.id
+          }
+        ).$promise
+      },
+
+      /**
+       * [deletes a liability]
+       * @param  {[integer]} id [id of liability]
+       * @return {[$promise]}    [handle success and errors]
+       */
+      deleteLiability: function(id){
+        return Liability.deleteById({id:id}).$promise
+      },
+
+      /**
+       * [update values of a liability]
+       * @param  {[integer]} id               [id of liability]
+       * @param  {[integer]} accountNumber    [liability account number]
+       * @param  {[integer]} outstandingValue [description]
+       * @param  {[date]} endDate             [description]
+       * @param  {[number]} rate              [description]
+       * @param  {[integer]} instalmentAmount [description]
+       * @param  {[string]} type              [description]
+       * @return {[$promise]}                 [hundle success and errors]
+       */
+      updateLiability: function(
+        id,
+        accountNumber,
+        outstandingValue,
+        endDate,
+        rate,
+        instalmentAmount
+      ){
+        return Liability.prototype$patchAttributes(
+          {
+            id: id,
+            accountNumber: accountNumber,
+            outstandingValue: outstandingValue,
+            endDate: endDate,
+            rate: rate,
+            instalmentAmount: instalmentAmount
+          }
+        ).$promise
+      },
+
+      /**
+       * [get all the reabilities]
+       * @return {[$promise]} [handle Success and errors]
+       */
+      getliabilities: function(){
+        return Client.liabilities({id: $rootScope.currentUser.id}).$promise;
+      },
+
+      /**
+       * [create a creditor]
+       * @param  {[string]} name                  [name of creditor]
+       * @param  {[string]} address             [address of creditor]
+       * @param  {[integer]} outstandingValue [value owing a creditor]
+       * @return {[$promise]}               [handle success and failiure]
+       */
+      createCreditor: function(name, address, outstandingValue){
+        return Creditor.create(
+          {
+            name: name,
+            address: address,
+            outstandingValue: outstandingValue,
+            accountNumber: 0,
+            description: null,
+            endDate: 0,
+            rate: 0,
+            instalmentAmount: 0,
+            type: "Creditors: money you owe other people",
+            clientId: $rootScope.currentUser.id
+          }
+        ).$promise
+      },
+
+       /**
+        * [update a creditor]
+        * @param  {[integer]} id                     [id of creditor]
+        * @param  {[string]} name                  [name of creditor]
+        * @param  {[string]} address             [address of creditor]
+        * @param  {[integer]} outstandingValue [value owing a creditor]
+        * @return {[$promise]}               [handle success and failiure]
+        */
+      updateCreditor: function(id, name, address, outstandingValue){
+        return Creditor.prototype$patchAttributes(
+          {
+            id: id,
+            name: name,
+            address: address,
+            outstandingValue: outstandingValue
+          }
+        ).$promise
+      },
+
+      /**
+       * [delete a creditor]
+       * @param  {[integer]} id [id of creditor]
+       * @return {[$promise]}    [handle success or failiure]
+       */
+      deleteCreditor: function(id){
+        return Creditor.delete({id:id}).$promise
+      },
+
+      /**
+       * [get all client creditors]
+       * @return {[$promise]} [handle success or failiure]
+       */
+      getCreditors: function() {
+        return Client.creditors({id: $rootScope.currentUser.id}).$promise
+      }
 
       }
    }

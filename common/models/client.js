@@ -39,6 +39,7 @@ module.exports = function(Client) {
 
   }
 
+
   Client.remoteMethod('getClientBio', {
     description: 'get client bio data',
     accepts:  [
@@ -49,6 +50,29 @@ module.exports = function(Client) {
       {arg: 'clientbio', type: 'string', root: true}
     ],
     http: {path: "/:id/bio", verb: 'get'}
+  });
+
+  /**
+   * [add creditors to the liabilities array]
+   * @param  {[object]}   ctx       [current context]
+   * @param  {[object]}   liability [description]
+   * @param  {function} next      [a callback function ]
+   * @return {[type]}             [description]
+   */
+  Client.afterRemote('prototype.__get__liabilities', function(ctx, liability, next){
+    var Creditor = Client.app.models.Creditor;
+    var id = ctx.req.accessToken.userId;
+
+    Creditor.find(
+      {where:{clientId: id}},
+      function(err, creditors){
+        if (err) throw err;
+
+        ctx.result = ctx.result.concat(creditors);
+
+        next();
+      }
+    );
   });
 
   //send verification email after registration

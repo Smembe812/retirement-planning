@@ -63,7 +63,11 @@ if (err) throw err;
 dataSource.disconnect();
 });
 */
-dataSource.automigrate('machineryEtEquipment', function(err){
+dataSource.automigrate('Liability', function(err){
+  if (err) throw err;
+  dataSource.disconnect();
+});
+dataSource.automigrate('creditor', function(err){
   if (err) throw err;
   dataSource.disconnect();
 });

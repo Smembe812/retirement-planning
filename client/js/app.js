@@ -1,4 +1,4 @@
-    'use strict';
+      'use strict';
 angular.module('app', [
     'ui.router',
     'angularCSS',
@@ -6,10 +6,16 @@ angular.module('app', [
     'ui.bootstrap',
     'ngTagsInput',
     'ngAnimate',
-    'ngMask'
+    'ngMask',
+    'ng-fusioncharts'
   ])
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
-      $urlRouterProvider) {
+  .config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function(
+      $stateProvider,
+      $urlRouterProvider
+    ) {
     $stateProvider
       .state('website-home', {
         url: '/website/home',
@@ -231,6 +237,20 @@ angular.module('app', [
           '../assets/css/themify-icons.css'
         ],
         controller: 'PensionFundController',
+        authenticate: true
+      })
+      .state('planner-liabilities', {
+        url: '/planner/liabilities',
+        templateUrl: '../liabilities/liabilities.view.html',
+        css: [
+          '../signin/bootstrap.min.css',
+          '../assets/css/animate.css',
+          '../assets/css/paper-dashboard.css',
+          '../assets/css/rpc.css',
+          '../assets/css/ng-tags-input.min.css',
+          '../assets/css/themify-icons.css'
+        ],
+        controller: 'LiabilityController',
         authenticate: true
       })
       .state('planner-cash-in-flow', {

@@ -50,6 +50,12 @@ app.controller('DependantsController',[
        });
      };
 
+     /**
+      * [modal for editing a dependant's details]
+      * @param  {[string]} size [size of modal, sm, lg, md]
+      * @param  {[object]} depe [object of dependant being updated]
+      * @return {[type]}      [description]
+      */
      $scope.editDependantsModal = function (size, depe) {
        angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
         console.log(depe);
@@ -77,24 +83,31 @@ app.controller('DependantsController',[
         });
       };
 
+      /**
+       * [get all client dependants]
+       * @return {[object]} [resul]
+       */
      var getDependants = function(){
        ClientService.getDependants().then(
          function(results){
            $scope.client.dependants = results;
-           console.log(results);
            $scope.hasDependants = true;
          },
          function(err){
-           console.log(err);
+
          }
        )
      }
 
+     /**
+      * [delete a dependant]
+      * @param  {[integer]} id [id of dependant]
+      * @return {[object]}    [result]
+      */
      $scope.deleteDependant = function(id){
        ClientService.deleteDependant(id).then(
          function(results){
            getDependants();
-           console.log(results);
          },
          function(err){
            console.log(err);

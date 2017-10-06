@@ -1,0 +1,639 @@
+<script type="text/ng-template" id="edit.liability.html">
+   <div>
+      <div class="modal-header">
+         <h3 class="modal-title" ng-bind="liability.type"></h3>
+      </div>
+      <div class="modal-body">
+         <div class="row" ng-show="isCollapsed">
+            <div class="col-md-6">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Account number</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                          <div class="">
+                             <input type="text" class="form-control" placeholder="Account number" ng-model="liability.accountNumber" restrict="reject" clean="true" required>
+                          </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              <div class="col-md-6">
+                   <div class="form-group">
+                      <label class="font-dark md-font">Outstanding value</label>
+                       <div class="row">
+                         <div class="col-md-12">
+                            <div class="">
+                               <input type="text" class="form-control" placeholder="Outstanding value" ng-model="liability.outstandingValue" mask="999999999" restrict="reject" clean="true" required>
+                            </div>
+                         </div>
+                       </div>
+                   </div>
+                </div>
+          </div>
+          <div class="row" ng-show="isCollapsed">
+             <div class="col-md-6">
+                  <div class="form-group">
+                     <label class="font-dark md-font">End date</label>
+                      <div class="row">
+                        <div class="col-md-12">
+                           <div class="">
+
+                              <input type="date" class="form-control" placeholder="" ng-model="liability.endDate" restrict="reject" clean="true" required>
+                           </div>
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                    <div class="form-group">
+                       <label class="font-dark md-font">Instalment amount</label>
+                        <div class="row">
+                          <div class="col-md-12">
+                             <div class="">
+                                <input type="text" class="form-control" placeholder="Instalment amount" ng-model="liability.instalmentAmount" mask="999999999" restrict="reject" clean="true" required>
+                             </div>
+                          </div>
+                        </div>
+                    </div>
+                 </div>
+           </div>
+           <div class="row" ng-show="isCollapsed">
+                <div class="col-md-6">
+                     <div class="form-group">
+                        <label class="font-dark md-font">Rate</label>
+                         <div class="row">
+                           <div class="col-md-12">
+                              <div class="">
+                                 <input type="text" class="form-control" placeholder="rate" ng-model="liability.rate" mask="999" restrict="reject" clean="true" required>
+                              </div>
+                           </div>
+                         </div>
+                     </div>
+                  </div>
+
+            </div>
+         <div class="row" ng-show="creditorCollapse">
+              <div class="col-md-6">
+                   <div class="form-group">
+                      <label class="font-dark md-font">Name of creditor</label>
+                       <div class="row">
+                         <div class="col-md-12">
+                            <div class="">
+                               <input type="text" class="form-control" placeholder="Name" ng-model="liability.creditor.name" required>
+                            </div>
+                         </div>
+                       </div>
+                   </div>
+                </div>
+                <div class="col-md-6">
+                     <div class="form-group">
+                        <label class="font-dark md-font">Address of creditor</label>
+                         <div class="row">
+                           <div class="col-md-12">
+                              <div class="">
+                                 <input type="text" class="form-control" placeholder="address" ng-model="liability.creditor.address" clean="true" required>
+                              </div>
+                           </div>
+                         </div>
+                     </div>
+                  </div>
+            </div>
+
+            <div class="row" ng-show="creditorCollapse">
+                 <div class="col-md-6">
+                      <div class="form-group">
+                         <label class="font-dark md-font">Outstanding balance</label>
+                          <div class="row">
+                            <div class="col-md-12">
+                               <div class="">
+                                  <input type="text" class="form-control" placeholder="Balance" ng-model="liability.creditor.outstandingValue" mask="999999999" restrict="reject" clean="true" required>
+                               </div>
+                            </div>
+                          </div>
+                      </div>
+                   </div>
+
+             </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">Create</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+
+<script type="text/ng-template" id="create.liability.html">
+   <div>
+      <div class="modal-header">
+         <h3 class="modal-title">Add a liability</h3>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <select class="form-control ng-pristine ng-valid ng-touched" ng-model="liability.type" ng-click="wecollapse()">
+                  <option disabled="" selected="" value="Liabilities">Liabilities</option>
+                  <option value="Land and Buildings – Mortgage">Land and Buildings – Mortgage</option>
+                  <option value="Estate and Farms - Land and Buildings – Mortgage">Estate and Farms - Land and Buildings – Mortgage</option>
+                  <option value="Estate and Farms - Machinery and Equipment - Leases">Estate and Farms - Machinery and Equipment - Leases</option>
+                  <option value="Estate & Farms - Furniture & Fittings – Loans">Estate & Farms - Furniture & Fittings – Loans</option>
+                  <option value="Estate & Farms - Productive Animals">Estate & Farms - Productive Animals</option>
+                  <option value=" Estate & Farms -Woodlot & Plantations - Loans"> Estate & Farms -Woodlot & Plantations - Loans</option>
+                  <option value="Motor Vehicles – Leases">Motor Vehicles – Leases</option>
+                  <option value="Household Effects (Furniture etc) – Loans">Household Effects (Furniture etc) – Loans</option>
+                  <option value="Bank Loans - Personal Loans">Bank Loans - Personal Loans</option>
+                  <option value="Creditors: money you owe other people">Creditors: money you owe other people</option>
+                  <option value="Business Loans guaranteed by you">Business Loans guaranteed by you</option>
+              </select>
+            </div>
+          </div>
+         <div class="row" ng-show="isCollapsed">
+            <div class="col-md-6">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Account number</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                          <div class="">
+                             <input type="text" class="form-control" placeholder="Account number" ng-model="liability.accountNumber" restrict="reject" clean="true" required>
+                          </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              <div class="col-md-6">
+                   <div class="form-group">
+                      <label class="font-dark md-font">Outstanding value</label>
+                       <div class="row">
+                         <div class="col-md-12">
+                            <div class="">
+                               <input type="text" class="form-control" placeholder="Outstanding value" ng-model="liability.outstandingValue" mask="999999999" restrict="reject" clean="true" required>
+                            </div>
+                         </div>
+                       </div>
+                   </div>
+                </div>
+          </div>
+          <div class="row" ng-show="isCollapsed">
+             <div class="col-md-6">
+                  <div class="form-group">
+                     <label class="font-dark md-font">End date</label>
+                      <div class="row">
+                        <div class="col-md-12">
+                           <div class="">
+
+                              <input type="date" class="form-control" placeholder="" ng-model="liability.endDate" restrict="reject" clean="true" required>
+                           </div>
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                    <div class="form-group">
+                       <label class="font-dark md-font">Instalment amount</label>
+                        <div class="row">
+                          <div class="col-md-12">
+                             <div class="">
+                                <input type="text" class="form-control" placeholder="Instalment amount" ng-model="liability.instalmentAmount" mask="999999999" restrict="reject" clean="true" required>
+                             </div>
+                          </div>
+                        </div>
+                    </div>
+                 </div>
+           </div>
+           <div class="row" ng-show="isCollapsed">
+                <div class="col-md-6">
+                     <div class="form-group">
+                        <label class="font-dark md-font">Rate</label>
+                         <div class="row">
+                           <div class="col-md-12">
+                              <div class="">
+                                 <input type="text" class="form-control" placeholder="rate" ng-model="liability.rate" mask="999" restrict="reject" clean="true" required>
+                              </div>
+                           </div>
+                         </div>
+                     </div>
+                  </div>
+
+            </div>
+         <div class="row" ng-show="creditorCollapse">
+              <div class="col-md-6">
+                   <div class="form-group">
+                      <label class="font-dark md-font">Name of creditor</label>
+                       <div class="row">
+                         <div class="col-md-12">
+                            <div class="">
+                               <input type="text" class="form-control" placeholder="Name" ng-model="liability.creditor.name" required>
+                            </div>
+                         </div>
+                       </div>
+                   </div>
+                </div>
+                <div class="col-md-6">
+                     <div class="form-group">
+                        <label class="font-dark md-font">Address of creditor</label>
+                         <div class="row">
+                           <div class="col-md-12">
+                              <div class="">
+                                 <input type="text" class="form-control" placeholder="address" ng-model="liability.creditor.address" clean="true" required>
+                              </div>
+                           </div>
+                         </div>
+                     </div>
+                  </div>
+            </div>
+
+            <div class="row" ng-show="creditorCollapse">
+                 <div class="col-md-6">
+                      <div class="form-group">
+                         <label class="font-dark md-font">Outstanding balance</label>
+                          <div class="row">
+                            <div class="col-md-12">
+                               <div class="">
+                                  <input type="text" class="form-control" placeholder="Balance" ng-model="liability.creditor.outstandingValue" mask="999999999" restrict="reject" clean="true" required>
+                               </div>
+                            </div>
+                          </div>
+                      </div>
+                   </div>
+
+             </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">Create</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<script type="text/ng-template" id="delete.liability.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Warning</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="alert alert-danger">
+                   <button type="button" aria-hidden="true" class="close">×</button>
+                   <span><b> Danger - </b> Are you sure you want to delete your this {{liability.type}} liability?</span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">Delete</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="edit.salary.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the value of the income from monthly salary contributions</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Salary monthly contributions income</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" ng-model="cashin.salaryMonthlyContributions" mask="999999999" restrict="reject" clean="true" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<script type="text/ng-template" id="edit.surpluses.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the value of the income from Net Surpluses from businesses reinvested</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Net Surpluses from businesses reinvested income</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" ng-model="cashin.reInvestedBusinessesNetSurpluses" mask="999999999" restrict="reject" clean="true" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<script type="text/ng-template" id="edit.interest.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the value of the income from Interest received from investments</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Interest received from investments income</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" ng-model="cashin.investmentInterest" mask="999999999" restrict="reject" clean="true" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<script type="text/ng-template" id="edit.dividends.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the value of the income from  Dividends re-invested</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font"> Dividends re-invested income</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" ng-model="cashin.dividendsReInvested" mask="999999999" restrict="reject" clean="true" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<script type="text/ng-template" id="edit.insurance.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the value of the income from  Insurance Policy premiums</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font"> Insurance Policy premiums income</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" ng-model="cashin.insurancepolicyPremiums" mask="999999999" restrict="reject" clean="true" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<script type="text/ng-template" id="edit.pension.html">
+   <div>
+
+      <div class="modal-header">
+         <h3 class="modal-title">Edit the value of the income from Pension contributions</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+                 <div class="form-group">
+                    <label class="font-dark md-font">Pension contributions income</label>
+                     <div class="row">
+                       <div class="col-md-12">
+                        <div class="">
+                           <input type="text" class="form-control" ng-model="cashin.pensionContributions" mask="999999999" restrict="reject" clean="true" required>
+                        </div>
+                       </div>
+                     </div>
+                 </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-green" type="button" ng-click="ok()">OK</button>
+         <button class="btn btn-red" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</script>
+
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="/home" class="simple-text">
+                    RPC
+                </a>
+            </div>
+
+            <ul class="nav">
+              <li>
+                   <a href="/home">
+                       <i class="ti-panel"></i>
+                       <p>Dashboard</p>
+                   </a>
+               </li>
+               <li >
+                   <a href="/#!/planner/bio">
+                       <i class="ti-user"></i>
+                       <p>My Bio</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="/#!/planner/work">
+                       <i class="ti-briefcase"></i>
+                       <p>Work</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="/#!/planner/dependants">
+                       <i class="fa fa-child"></i>
+                       <p>Dependants</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="/#!/planner/pension-fund">
+                       <i class="fa fa-money"></i>
+                       <p>Pension Fund</p>
+                   </a>
+               </li>
+               <li class="active">
+                   <a href="/#!/planner/cash-in-flow">
+                       <i class="fa fa-sign-in"></i>
+                       <p>Cash in flow</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="/#!/planner/cash-out-flow">
+                       <i class="fa fa-sign-out"></i>
+                       <p>Cash out flow</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="">
+                       <i class="ti-bell"></i>
+                       <p>Notifications</p>
+                   </a>
+               </li>
+				<!--<li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="ti-export"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>-->
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="font-white navbar-brand" href="/">Cash In Flow</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="ti-panel"></i>
+								<p>Stats</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bell"></i>
+                                    <p class="notification">5</p>
+									<p>Notifications</p>
+									<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>-->
+						<li>
+                            <a href="/signout">
+								<i class="ti-settings font-white"></i>
+								<p class="font-white">Sign Out</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+                        <liabilities></liabilities>
+                    </div>
+                    <div class="col-lg-6">
+                      <div fusioncharts
+                      width="100%"
+                      height="500"
+                      type="doughnut2d"
+                      dataSource="{{myDataSource}}" >
+                    </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                Website
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    Retirement Planning Center
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>

@@ -133,10 +133,6 @@
     "dataSource": "postgre",
     "public": true
   },
-  "LandEtBuildingLiability": {
-    "dataSource": "postgre",
-    "public": true
-  },
   "creditor": {
     "dataSource": "postgre",
     "public": true
