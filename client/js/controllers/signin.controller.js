@@ -2,7 +2,7 @@
 angular.module('app')
   .controller('SigninController', ['$scope', 'AuthService', '$state',
     function($scope, AuthService, $state){
-    
+      $scope.date = new Date().getFullYear();
       $scope.loginPage = true;
       $scope.signIn = function() {
         AuthService.login($scope.client.email, $scope.client.password)

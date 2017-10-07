@@ -18,7 +18,12 @@ app.controller('LiabilityController', [
     }
 
 
-
+    /**
+     * [deletes a liability]
+     * @param  {[string]} size      [size of modal, sm, md, lg]
+     * @param  {[object]} liability [liability object to delete]
+     * @return {[void]}           [description]
+     */
     $scope.deleteLiability = function (size, liability) {
       angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
 
@@ -33,6 +38,7 @@ app.controller('LiabilityController', [
        });
 
        modalInstance.result.then(function (liability) {
+         //if creditor liabilities, delete it
          if (liability.creditor){
            ClientService.deleteCreditor(liability.id).then(
              function(result){
@@ -43,11 +49,23 @@ app.controller('LiabilityController', [
              }
            )
 
-         }else {
+         }
+         //if any other liability, delete it too
+         else {
            ClientService.deleteLiability(liability.id).then(
+
+             /**
+              * [on successful deletion, reload liabilities]
+              * @param  {[object]} result [description]
+              */
              function(result){
-               getliabilities();
+               getliabilities(); //reloads liabilities
              },
+
+             /**
+              * [on deletion failiure, do something]
+              * @param  {[object]} err [error object]
+              */
              function(err){
                console.log(err);
              }
@@ -58,6 +76,12 @@ app.controller('LiabilityController', [
        });
      };
 
+     /**
+      * [edit a liability]
+      * @param  {[string]} size      [size of modal, sm, md, ls]
+      * @param  {[object]} liability [liability object to be edited]
+      * @return {[void]}           [description]
+      */
     $scope.editLiability = function (size, liability) {
       angular.element(document).find('.modal-dialog').addClass('animated fadeInDown');
 
@@ -75,6 +99,7 @@ app.controller('LiabilityController', [
 
        modalInstance.result.then(function (liability) {
 
+         //if creditor liabilities, edit it
          if (liability.creditor) {
            ClientService.updateCreditor(
               liability.id,
@@ -82,10 +107,20 @@ app.controller('LiabilityController', [
               liability.address,
               liability.outstandingValue
             ).then(
+
+              /**
+               * [on successful edition, reload liabilities]
+               * @param  {[object]} result [description]
+               */
               function(results){
                 getliabilities();
 
               },
+
+              /**
+               * [on editing failiure, do something]
+               * @param  {[err]} result [error object]
+               */
               function(err){
                 console.log(err);
               }
@@ -93,8 +128,9 @@ app.controller('LiabilityController', [
 
 
          }
+
+         //if any other liabilities, edit it
          else {
-           console.log(liability);
            ClientService.updateLiability(
              liability.id,
              liability.accountNumber,
@@ -103,10 +139,19 @@ app.controller('LiabilityController', [
              liability.rate,
              liability.instalmentAmount
            ).then(
+             /**
+              * [on successful edition, reload liabilities]
+              * @param  {[object]} result [description]
+              */
              function(results){
                getliabilities();
-               console.log(results);
-             }, function(err) {
+             },
+
+             /**
+              * [on editing failiure, do something]
+              * @param  {[err]} result [error object]
+              */
+             function(err) {
                console.log(err);
              }
            );
@@ -187,7 +232,6 @@ app.controller('LiabilityController', [
               */
              function(results){
                getliabilities();
-               console.log(results);
              },
 
              /**
@@ -206,48 +250,69 @@ app.controller('LiabilityController', [
        });
      };
 
-
+     /**
+      * [get client's liabilities]
+      * @return {[type]} [description]
+      */
     var getliabilities = function(){
       ClientService.getliabilities().then(
         function(results){
-          $scope.client.liabilities = results;
-          $scope.hasLiability = true;
-          var orr = []
-          console.log(orr);
-          angular.forEach(results, function(item, index) {
-            var obo = {
-              label: item.type,
-              value: item.outstandingValue
-            }
-            orr.push(obo);
-          });
 
-          $scope.myDataSource = {
-             chart: {
-                 caption: "Liabilities Total",
-                 subCaption: "Percentages of all liabilities",
-                 use3DLighting: "0",
-                 startingAngle: "310",
-                 showLabels: "0",
-                 numberPrefix: "$",
-                 showPercentValues: "1",
-                 defaultCenterLabel: "Total revenue: $value",
-                 centerLabel: "Revenue from $label: $value",
-                 showLegend: "1",
-                 centerLabelBold: "1",
-                 theme: "fint"
+          //if results has items, create the pie chart and $scope.client liabilities
+          if (results.length > 0) {
+            $scope.client.liabilities = results;
+            $scope.hasLiability = true;
+            var orr = [] //Array to hold chart items
+            var sum = 0; //total value of liabilities
+            angular.forEach(results, function(item, index) {
 
-             },
-             data: orr
-           };
+              //create item for chart
+              var obo = {
+                label: item.type,
+                value: item.outstandingValue
+              }
+
+              sum = sum + item.outstandingValue; //compute the total
+
+              orr.push(obo); //add the item to the chart array
+            });
+
+            $scope.myDataSource = {
+              //chart configurations
+              chart: {
+                caption: "Liabilities Total",
+                subCaption: "Percentages of all liabilities",
+                use3DLighting: "0",
+                startingAngle: "310",
+                showLabels: "0",
+                numberPrefix: "$",
+                showPercentValues: "1",
+                defaultCenterLabel: "Total of liabilities: $"+(sum),
+                centerLabel: "Revenue from $label: $value",
+                showLegend: "1",
+                centerLabelBold: "1",
+                theme: "fint"
+
+              },
+
+              //data to be displaed on the chart
+              data: orr
+            };
+          }
+
         },
+
+        /**
+         * [what to do when there is an error getting liabilities]
+         * @param  {[object]} err [object of error]
+         */
         function(err){
           console.log(err);
         }
       )
     }
 
-    getliabilities();
+    getliabilities(); //run the get function
   }])
   .controller('createLiabilityCtrl', function ($scope, $rootScope, $uibModalInstance, liability, ClientService) {
     $scope.isCollapsed = false;

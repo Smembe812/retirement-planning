@@ -15,7 +15,7 @@ angular.module('app')
         birthday: null,
         birthyear: null
       }
-
+      $scope.date = new Date().getFullYear();
       $scope.isNotConfirmed = false;
       $scope.checkPassword = function(){
 
