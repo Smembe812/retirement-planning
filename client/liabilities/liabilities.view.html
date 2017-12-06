@@ -166,7 +166,7 @@
                        <div class="row">
                          <div class="col-md-12">
                             <div class="">
-                               <input type="text" class="form-control" placeholder="Outstanding value" ng-model="liability.outstandingValue" mask="999999999" restrict="reject" clean="true" required>
+                               <input type="text" class="form-control" placeholder="Outstanding value" ng-model="liability.outstandingValue" required>
                             </div>
                          </div>
                        </div>
@@ -249,7 +249,7 @@
                           <div class="row">
                             <div class="col-md-12">
                                <div class="">
-                                  <input type="text" class="form-control" placeholder="Balance" ng-model="liability.creditor.outstandingValue" mask="999999999" restrict="reject" clean="true" required>
+                                  <input type="text" class="form-control" placeholder="Balance" ng-model="liability.creditor.outstandingValue | number" mask="999999999" restrict="reject" clean="true" required>
                                </div>
                             </div>
                           </div>
