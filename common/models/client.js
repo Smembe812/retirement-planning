@@ -97,11 +97,11 @@ module.exports = function(Client) {
      * @return [type]            [description]
      */
     client.verify(options, function(err, response) {
-      if (err) {
-        Client.deleteById(client.id);
+      // if (err) {
+      //   Client.deleteById(client.id);
 
-        return next(err);
-      }
+      //   return next(err);
+      // }
 
       console.log('> verification email sent:', response);
     });

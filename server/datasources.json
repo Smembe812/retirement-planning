@@ -7,8 +7,8 @@
     "host": "localhost",
     "port": 5432,
     "url": "",
-    "database": "rcp_db",
-    "password": "1234",
+    "database": "retirement_planing",
+    "password": "postgres",
     "name": "postgre",
     "user": "postgres",
     "connector": "postgresql"
@@ -26,8 +26,8 @@
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "akulinandia@gmail.com",
-          "pass": "@littleone@"
+          "user": "email",
+          "pass": "password"
         }
       }
     ]
