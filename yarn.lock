@@ -1967,12 +1967,10 @@ isemail@1.x.x:
   resolved "https://registry.yarnpkg.com/isemail/-/isemail-1.2.0.tgz#be03df8cc3e29de4d2c5df6501263f1fa4595e9a"
   integrity sha1-vgPfjMPineTSxd9lASY/H6RZXpo=
 
-isemail@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.2.0.tgz#59310a021931a9fb06bbb51e155ce0b3f236832c"
-  integrity sha512-zKqkK+O+dGqevc93KNsbZ/TqTUFd46MwWjYOoMrjIMZ51eU7DtQG3Wmd9SQQT7i7RVnuTPEiYEWHU3MSbxC1Tg==
-  dependencies:
-    punycode "2.x.x"
+isemail@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-2.2.1.tgz#0353d3d9a62951080c262c2aa0a42b8ea8e9e2a6"
+  integrity sha1-A1PT2aYpUQgMJiwqoKQrjqjp4qY=
 
 isexe@^2.0.0:
   version "2.0.0"
@@ -2326,10 +2324,10 @@ loopback-swagger@^3.0.1:
     strong-globalize "^2.6.0"
     underscore.string "~2.3.3"
 
-loopback@^3.0.0:
-  version "3.27.0"
-  resolved "https://registry.yarnpkg.com/loopback/-/loopback-3.27.0.tgz#16384a274a88e9f9073e94c08c5770779ee0a87e"
-  integrity sha512-Y8pL1jyIZQf5QfkKZrQaOKdK88GEgBP5JZxfWSgm/k5tF+jbVZxHfqKr+3HUicSDX4HcRS1Fx1vLcPawDqKqaA==
+loopback@^3.25.1:
+  version "3.25.1"
+  resolved "https://registry.yarnpkg.com/loopback/-/loopback-3.25.1.tgz#651af40e6626a49216885364d4812b1f3cab9020"
+  integrity sha512-JIl3e9FI7uU5p47rpV+Bv5JQTVaIhzUngp7GqGz4aKJ1Qwgmp3xfFTGkMdhgG2I8pbXIhoR2kPUkFF/yD/6WcA==
   dependencies:
     async "^2.0.1"
     bcryptjs "^2.1.0"
@@ -2341,7 +2339,7 @@ loopback@^3.0.0:
     ejs "^2.3.1"
     express "^4.14.0"
     inflection "^1.6.0"
-    isemail "^3.2.0"
+    isemail "^2.2.1"
     loopback-connector-remote "^3.0.0"
     loopback-datasource-juggler "^3.28.0"
     loopback-filters "^1.0.0"
@@ -2996,7 +2994,7 @@ punycode@1.3.2:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
   integrity sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=
 
-punycode@2.x.x, punycode@^2.1.0, punycode@^2.1.1:
+punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
